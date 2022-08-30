@@ -1,0 +1,18 @@
+// Typography
+@import './setting';
+body {
+    font-family: $font;
+    color: $cloudWhite;
+}
+
+h1, h2, h3, h4 {
+    font-weight: bold;
+}
+
+h1, h2, h3, h4, p {
+    margin-top: 0;
+}
+
+p {
+    line-height: 1.4;
+}
