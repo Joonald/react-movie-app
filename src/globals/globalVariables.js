@@ -14,4 +14,8 @@ export const endPointNowPlaying = 'https://api.themoviedb.org/3/movie/now_playin
 
 
 // API KEY
-export const apiKey = 'de99d6594d92d39b35a08cccfde6f258';
+export const apiKey = 'api_key=de99d6594d92d39b35a08cccfde6f258';
+
+// Image URLS
+export const secureUrl        = 'https://image.tmdb.org/t/p/';
+export const imgSize          = 'w342';
