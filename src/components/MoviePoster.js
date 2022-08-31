@@ -33,7 +33,6 @@ function MoviePoster () {
             let data = await res.json();
             setMovieData(data);
         }
-        console.log('hi');
         fetchMovie();
     }, []);
 function getGenreName(id) {
@@ -43,41 +42,33 @@ function getGenreName(id) {
     )
 }
     return (
-        <div>
+        <div className='movie-poster-wrapper'>
         {movieData.results?.map((movie) => 
-        
-            <div key={movie.id}>
-                <img src={`${secureUrl}${imgSize}${movie.poster_path}`} alt="" />
-                <h2>{movie.title}</h2>
-                <span>
-                {movie.genre_ids.map((id) =>{
-                    let genrename = getGenreName(id)
-                    return (
-                    <p>{genrename}</p>
-                )}
-                // index = GENRES.map(object => object.id).indexOf(id),
-                // for ((id) !== {GENRES.id} ) {
-                //     if ((id) === GENRES.id ){
-                //       <p>{GENRES.name}</p>
-                //     }
-                // }
-              
-            
-    
-         
-                
-     
-             
-             
-                )} 
-                </span> 
-                <p>
-                {movie.release_date}
-                </p>
-                <p>
-                {movie.overview}
-                </p>
-            </div>
+            <section className='movie-poster'key={movie.id}>
+                <img src={`${secureUrl}${imgSize}${movie.poster_path}`} alt={movie.title} />
+                <section className='movie-content'>
+                    <div className='movie-text'>
+                        <h3 className='movie-title'>{movie.title}</h3>
+                        <span>
+                        {movie.genre_ids.map((id) =>{
+                            let genrename = getGenreName(id)
+                            return (
+                            <p>{genrename}</p>
+                        )}
+                        )} 
+                        </span> 
+                        <p className='release-text'>
+                        {movie.release_date}
+                        </p>
+                        <div className='overview-text'>
+                            <p>
+                            {movie.overview}
+                            </p>
+                        </div>
+                    </div>
+                    <button className='more-info-btn'>More Info</button>    
+                </section>
+            </section>
         )}
         </div>
     )
