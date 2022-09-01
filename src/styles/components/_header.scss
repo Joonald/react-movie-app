@@ -12,6 +12,9 @@ nav ul{
     flex-wrap: wrap;
     justify-content: space-between;
     list-style: none;
+    width: 100%;
+    padding: 0;
+    
     
 }
 nav {
@@ -25,10 +28,22 @@ nav {
 }
 
 nav li {
-    color: $cloudBlue;
+  margin-left: .5rem ;
+  margin-right: .5rem;
   
 }
 nav a:link {
     text-decoration: none;
     color: $cloudBlue;
+}
+
+.home{
+    stroke: $cloudBlue;
+    stroke-width: 50px;
+    color: rgba(255, 255, 255, 0);
+}
+.nav-btn{
+    color: $cloudBlue;
+
+ 
 }

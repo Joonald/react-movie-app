@@ -4,11 +4,17 @@ import { Link } from 'react-router-dom';
 import { apiKey, secureUrl, imgSize} from '../globals/globalVariables';
 import { GENRES } from '../globals/genreList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 
 function MoviePoster ({sort}) {
     const [movieData, setMovieData] = useState(false);
+    const [isActive, setActive] = useState(false);
+
+    const favMovie = () => {
+        setActive(!isActive);
+      };
+
 
     useEffect( () => {
         const fetchMovie = async () => {
@@ -28,11 +34,14 @@ function getGenreName(id) {
         <div className='movie-poster-wrapper'>
         {movieData.results?.map((movie) => 
             <section className='movie-poster'key={movie.id}>
+                                <FontAwesomeIcon className='heart' icon={faHeart} className ={isActive ? 'favHeart':'heart'} 
+                    onClick={favMovie} />
                 <img src={`${secureUrl}${imgSize}${movie.poster_path}`} alt={movie.title} />
                 <section className='movie-content'>
+
                     <div className='movie-text'>
 
-                    <FontAwesomeIcon className='heart' icon={faHeart} />
+                 
                         <h3 className='movie-title'>{movie.title}</h3>
                         <span>
                         {movie.genre_ids.map((id) =>{

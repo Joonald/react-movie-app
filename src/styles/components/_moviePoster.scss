@@ -2,6 +2,7 @@
     height: auto;
     width: calc(100vw - 10px);
     margin: 0 auto;
+    
 }
 .movie-poster {
     display: grid;
@@ -54,16 +55,40 @@ max-height: 350px;
     left: 0;
     margin: 0 auto;
     padding: 5px;
+    text-transform: uppercase;
 }
-<<<<<<< HEAD
+
+.more-info-btn a {
+    color: white;
+    text-decoration: none;
+}
 .genre {
     padding-right: .5rem;
     margin: 0;
     display:inline-block;
     font-size: .5rem;
-=======
-.heart {
-    width: 100px;
-    height: auto;
->>>>>>> master
 }
+.heart {
+    width: 30px;
+    height: auto;
+    position: absolute;
+    z-index: 5;
+    left: 1rem;
+    top: 1rem;
+    stroke: $cloudWhite;
+    stroke-width: 30px;
+    color: rgba(255, 255, 255, 0);
+}
+
+.favHeart {
+        left: 1rem;
+        top: 1rem;
+        width: 30px;
+        height: auto;
+        color: $cloudWhite;
+        position: absolute;
+        stroke: $cloudWhite;
+        stroke-width: 30px;
+}
+
+
