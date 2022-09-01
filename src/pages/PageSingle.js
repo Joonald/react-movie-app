@@ -3,7 +3,7 @@
 // Imports
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { apiKey, secureUrl, imgSize} from '../globals/globalVariables';
+import { apiKey, secureUrl, imgSize, backDropSize, engLang} from '../globals/globalVariables';
 import { endPointSingleMovie } from '../globals/globalVariables';
 
 function PageSingle () {
@@ -12,7 +12,7 @@ function PageSingle () {
     
     useEffect(() => {
         const fetchSingleMovie = async() => {
-            const res = await fetch(`${endPointSingleMovie}${single.id}?${apiKey}`);
+            const res = await fetch(`${endPointSingleMovie}${single.id}?${apiKey}${engLang}`);
             let data = await res.json();
             setMovieData(data);
         }
@@ -22,9 +22,9 @@ function PageSingle () {
     return (
         <main>
             <section className='single-movie-wrapper'>
-                <img src={`${secureUrl}/w1280${singleMovieData.backdrop_path}`} alt={singleMovieData.original_title} />
+                <img src={`${secureUrl}${backDropSize}${singleMovieData.backdrop_path}`} alt={singleMovieData.title} />
                 <div>
-                    <h2>{singleMovieData.original_title}</h2>
+                    <h2>{singleMovieData.title}</h2>
                     <h3>{singleMovieData.tagline}</h3>
                     <p>{singleMovieData.release_date}</p>
                     <p> 
