@@ -9,6 +9,7 @@ import { endPointSingleMovie } from '../globals/globalVariables';
 function PageSingle () {
     const single = useParams();
     const [singleMovieData, setMovieData] = useState(false);
+    
     useEffect(() => {
         const fetchSingleMovie = async() => {
             const res = await fetch(`${endPointSingleMovie}${single.id}?${apiKey}`);
@@ -24,6 +25,7 @@ function PageSingle () {
                 <img src={`${secureUrl}/w1280${singleMovieData.backdrop_path}`} alt={singleMovieData.original_title} />
                 <div>
                     <h2>{singleMovieData.original_title}</h2>
+                    <h3>{singleMovieData.tagline}</h3>
                     <p>{singleMovieData.release_date}</p>
                     <p> 
                     {singleMovieData.genres?.map((genres) => 
