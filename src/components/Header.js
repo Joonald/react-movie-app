@@ -1,8 +1,9 @@
 // Header
+import logo from '../image/cloud-movie-logo.svg';
 
 const Header = ({ title }) => (
     <header>
-        <h1>{title}</h1>
+     <img className='header-logo' src={logo} alt='logo'/>
     </header>
 );
 

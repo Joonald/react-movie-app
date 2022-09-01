@@ -34,7 +34,7 @@ function getGenreName(id) {
                         {movie.genre_ids.map((id) =>{
                             let genrename = getGenreName(id)
                             return (
-                            <p>{genrename}</p>
+                            <p className='genre'>{genrename}</p>
                         )}
                         )} 
                         </span> 
