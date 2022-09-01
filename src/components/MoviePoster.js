@@ -1,5 +1,6 @@
 // Movie Poster 
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { apiKey, secureUrl, imgSize} from '../globals/globalVariables';
 import { GENRES } from '../globals/genreList';
 
@@ -46,7 +47,7 @@ function getGenreName(id) {
                             </p>
                         </div>
                     </div>
-                    <button className='more-info-btn'>More Info</button>    
+                    <button className='more-info-btn'><Link to={`/single/${movie.id}`}>More Info</Link></button>    
                 </section>
             </section>
         )}
