@@ -5,7 +5,8 @@ import { apiKey, secureUrl, imgSize} from '../globals/globalVariables';
 import { GENRES } from '../globals/genreList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { addFav, delFav } from '../features/favs/favSlice';
 
 function MoviePoster ({sort}) {
     const [movieData, setMovieData] = useState(false);
