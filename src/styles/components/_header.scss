@@ -1,0 +1,25 @@
+header {
+    background-color: $cloudBlue;
+}
+
+.header-logo {
+    width: 8rem;
+    padding-left: 2rem;
+}
+
+nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+}
+nav {
+    background-color: $cloudBlue;
+    min-height: 3rem;
+   overflow: hidden;
+   position: fixed;
+   bottom: 0;
+   width: 100%;
+  
+ 
+}
