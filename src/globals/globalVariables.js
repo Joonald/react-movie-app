@@ -11,8 +11,8 @@ export const endPointPopular    = 'https://api.themoviedb.org/3/movie/popular?';
 export const endPointUpcoming   = 'https://api.themoviedb.org/3/movie/upcoming?';
 // Now Playing
 export const endPointNowPlaying = 'https://api.themoviedb.org/3/movie/now_playing?';
-
-
+// Single Movie Data
+export const endPointSingleMovie= 'https://api.themoviedb.org/3/movie/'
 // API KEY
 export const apiKey = 'api_key=de99d6594d92d39b35a08cccfde6f258';
 
