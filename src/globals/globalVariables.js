@@ -1,6 +1,7 @@
 // APP INFO
 export const appTitle   = 'React Movie App';
 export const appAuthor  = 'Jonny & Josy';
+export const favMovies  = 'Favourite Movies';
 
 //API urls
 // Top Rated

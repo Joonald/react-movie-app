@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import { apiKey, secureUrl, imgSize} from '../globals/globalVariables';
 import { GENRES } from '../globals/genreList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
-
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { useSelector, useDispatch } from 'react-redux';
+import { addFav, delFav } from '../features/favs/favSlice';
 
 function MoviePoster ({sort}) {
     const [movieData, setMovieData] = useState(false);
@@ -34,7 +35,7 @@ function getGenreName(id) {
         <div className='movie-poster-wrapper'>
         {movieData.results?.map((movie) => 
             <section className='movie-poster'key={movie.id}>
-                                <FontAwesomeIcon className='heart' icon={faHeart} className ={isActive ? 'favHeart':'heart'} 
+                                <FontAwesomeIcon icon={faHeart} className ={isActive ? 'favHeart':'heart'} 
                     onClick={favMovie} />
                 <img src={`${secureUrl}${imgSize}${movie.poster_path}`} alt={movie.title} />
                 <section className='movie-content'>
