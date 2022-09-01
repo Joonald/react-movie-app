@@ -10,6 +10,12 @@ import { addFav, delFav } from '../features/favs/favSlice';
 
 function MoviePoster ({sort}) {
     const [movieData, setMovieData] = useState(false);
+    const [isActive, setActive] = useState(false);
+
+    const favMovie = () => {
+        setActive(!isActive);
+      };
+
 
     useEffect( () => {
         const fetchMovie = async () => {
@@ -29,17 +35,20 @@ function getGenreName(id) {
         <div className='movie-poster-wrapper'>
         {movieData.results?.map((movie) => 
             <section className='movie-poster'key={movie.id}>
+                                <FontAwesomeIcon icon={faHeart} className ={isActive ? 'favHeart':'heart'} 
+                    onClick={favMovie} />
                 <img src={`${secureUrl}${imgSize}${movie.poster_path}`} alt={movie.title} />
                 <section className='movie-content'>
+
                     <div className='movie-text'>
 
-                    <FontAwesomeIcon className='heart' icon={faHeart} />
+                 
                         <h3 className='movie-title'>{movie.title}</h3>
                         <span>
                         {movie.genre_ids.map((id) =>{
                             let genrename = getGenreName(id)
                             return (
-                            <p key={id}>{genrename}</p>
+                            <p className='genre' key={id}>{genrename}</p>
                         )}
                         )} 
                         </span> 
