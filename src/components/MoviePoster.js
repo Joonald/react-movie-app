@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { apiKey, secureUrl, imgSize} from '../globals/globalVariables';
 import { GENRES } from '../globals/genreList';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 
 function MoviePoster ({sort}) {
@@ -29,12 +31,14 @@ function getGenreName(id) {
                 <img src={`${secureUrl}${imgSize}${movie.poster_path}`} alt={movie.title} />
                 <section className='movie-content'>
                     <div className='movie-text'>
+
+                    <FontAwesomeIcon className='heart' icon={faHeart} />
                         <h3 className='movie-title'>{movie.title}</h3>
                         <span>
                         {movie.genre_ids.map((id) =>{
                             let genrename = getGenreName(id)
                             return (
-                            <p>{genrename}</p>
+                            <p key={id}>{genrename}</p>
                         )}
                         )} 
                         </span> 
