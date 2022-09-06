@@ -33,15 +33,17 @@ function PageHome () {
             {/* hero banner */}
 
             {/* movie poster */}
+            <div className='sort-by-btns'>
             {sortByButtons.map((btn) => 
              <Button
                 key={btn.value}
                 value={btn.value}
-                className={btn.type}
+                type={btn.type}
                 text={btn.text}
                 handleClick={handleClick}
              />
             )}
+            </div>
            
             <MoviePoster sort={sortMovie}/>
         </main>
