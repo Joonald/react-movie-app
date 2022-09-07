@@ -3,19 +3,10 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { apiKey, secureUrl, imgSize} from '../globals/globalVariables';
 import { GENRES } from '../globals/genreList';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
-import { useSelector, useDispatch } from 'react-redux';
-import { addFav, delFav } from '../features/favs/favSlice';
+import FavButton from './FavButton';
 
 function MoviePoster ({sort}) {
     const [movieData, setMovieData] = useState(false);
-    const [isActive, setActive] = useState(false);
-
-    const favMovie = () => {
-        setActive(!isActive);
-      };
-
 
     useEffect( () => {
         const fetchMovie = async () => {
@@ -25,24 +16,24 @@ function MoviePoster ({sort}) {
         }
         fetchMovie();
     }, [sort]);
-function getGenreName(id) {
-    const thisgenre = GENRES.filter(genre => genre.id === id)
-   return (
-        thisgenre[0].name
-    )
-}
+
+    function getGenreName(id) {
+        const thisgenre = GENRES.filter(genre => genre.id === id)
+    return (
+            thisgenre[0].name
+        )
+    }
+
     return (
         <div className='movie-poster-wrapper'>
         {movieData.results?.map((movie) => 
             <section className='movie-poster'key={movie.id}>
-                                <FontAwesomeIcon icon={faHeart} className ={isActive ? 'favHeart':'heart'} 
-                    onClick={favMovie} />
+                <FavButton 
+                value={movie}
+                />
                 <img src={`${secureUrl}${imgSize}${movie.poster_path}`} alt={movie.title} />
                 <section className='movie-content'>
-
                     <div className='movie-text'>
-
-                 
                         <h3 className='movie-title'>{movie.title}</h3>
                         <span>
                         {movie.genre_ids.map((id) =>{
