@@ -1,3 +1,58 @@
 .single-movie-wrapper {
     background: $cloudBlue;
 }
+
+.heart-cloud-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 30%;
+    margin: 0 auto;
+}
+
+.heart-single {
+    width: 30px;
+    height: auto;
+    stroke: $cloudWhite;
+    stroke-width: 30px;
+    color: rgba(255, 255, 255, 0);
+    padding-left: 1.5rem;
+    margin-right: .5rem;
+   
+}
+
+.favHeart-single {
+        width: 30px;
+        height: auto;
+        color: $cloudWhite;
+        stroke: $cloudWhite;
+        stroke-width: 30px;
+        // display: inline-block;
+        padding: .5rem;
+        margin-left: .5rem;
+}
+.rating-cloud-single{
+    width: 40px;
+    height: auto;
+    position: relative;
+    color: $cloudWhite;
+    padding: .5rem;
+}
+.ratingbox {
+    position: relative;
+}
+.rating-single {
+    position: absolute;
+    top: 30%;
+    left: 52%;
+    color: $cloudBlue;
+    font-size: .75rem;
+
+}
+
+.single-movie-wrapper{
+    
+    border-radius:15px 50px;
+   margin: 1rem;
+   padding: 2rem;
+   margin-bottom: 4rem;
+}

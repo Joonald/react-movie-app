@@ -1,14 +1,18 @@
-// Movie Poster 
+// Imports
+import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { apiKey, secureUrl, imgSize} from '../globals/globalVariables';
-import { GENRES } from '../globals/genreList';
+import { apiKey, secureUrl, imgSize, backDropSize, engLang, castSize} from '../globals/globalVariables';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart,faCloud } from '@fortawesome/free-solid-svg-icons';
 import { useSelector, useDispatch } from 'react-redux';
-import { addFav, delFav } from '../features/favs/favSlice';
+import { addFav, delFav, favSlice } from '../features/favs/favSlice';
+import { GENRES } from '../globals/genreList';
+import { Link } from 'react-router-dom';
+import Search from '../components/Search';
 
-function MoviePoster ({sort}) {
+
+function SearchResult() {
+    const input = useParams();
     const [movieData, setMovieData] = useState(false);
     const [isActive, setActive] = useState(false);
 
@@ -19,12 +23,15 @@ function MoviePoster ({sort}) {
 
     useEffect( () => {
         const fetchMovie = async () => {
-            const res = await fetch(`${sort}${apiKey}`);
+            const res = await fetch(`https://api.themoviedb.org/3/search/movie?${apiKey}&language=en-US&query=?${input.input}&page=1&include_adult=false`);
             let data = await res.json();
             setMovieData(data);
+           
         }
         fetchMovie();
-    }, [sort]);
+
+});
+
 function getGenreName(id) {
     const thisgenre = GENRES.filter(genre => genre.id === id)
    return (
@@ -69,4 +76,5 @@ function getGenreName(id) {
         </div>
     )
 };
-export default MoviePoster;
+
+export default SearchResult;

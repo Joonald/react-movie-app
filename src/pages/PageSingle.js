@@ -3,13 +3,22 @@
 // Imports
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { apiKey, secureUrl, imgSize, backDropSize, engLang} from '../globals/globalVariables';
+import { apiKey, secureUrl, imgSize, backDropSize, engLang, castSize} from '../globals/globalVariables';
 import { endPointSingleMovie } from '../globals/globalVariables';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart,faCloud } from '@fortawesome/free-solid-svg-icons';
+import { useSelector, useDispatch } from 'react-redux';
+import { addFav, delFav, favSlice } from '../features/favs/favSlice';
 
 function PageSingle () {
     const single = useParams();
     const [singleMovieData, setMovieData] = useState(false);
-    
+    const [isActive, setActive] = useState(false);
+    const dispatch = useDispatch();
+    const [castList, setCastList] = useState(false);
+
+
+
     useEffect(() => {
         const fetchSingleMovie = async() => {
             const res = await fetch(`${endPointSingleMovie}${single.id}?${apiKey}${engLang}`);
@@ -19,12 +28,36 @@ function PageSingle () {
         fetchSingleMovie();
     },[single.id]);
 
+    const favMovie = () => {
+        setActive(!isActive);
+      };
+
+      //castlist
+      useEffect(() => {
+        const fetchCastList = async() => {
+            const list = await fetch(`${endPointSingleMovie}${single.id}/credits?${apiKey}${engLang}`);
+            let castList = await list.json();
+            setCastList(castList);
+        }
+        fetchCastList();
+    },[single.id]);
+     
+        const theCastList = castList.cast?.slice(0, 5);
+    console.log(singleMovieData)
     return (
         <main>
             <section className='single-movie-wrapper'>
                 <img src={`${secureUrl}${backDropSize}${singleMovieData.backdrop_path}`} alt={singleMovieData.title} />
                 <div>
+                    
                     <h2>{singleMovieData.title}</h2>
+                    <div className='heart-cloud-container'>
+                    <FontAwesomeIcon icon={faHeart} className ={isActive ? 'favHeart-single':'heart-single'} onClick={favMovie} />
+                    <div className='ratingbox'>
+                    <FontAwesomeIcon icon={faCloud} className ="rating-cloud-single" />
+                    <p className='rating-single'>{Math.round(singleMovieData.vote_average * 10)}%</p>
+                    </div>
+                    </div>
                     <h3>{singleMovieData.tagline}</h3>
                     <p>{singleMovieData.release_date}</p>
                     <p> 
@@ -33,6 +66,14 @@ function PageSingle () {
                     )}
                     </p>
                     <p>{singleMovieData.overview}</p>
+                    <h2>Cast List</h2>
+
+                    {theCastList?.map((oneCast) => 
+                    <div>
+                        <img src={`${secureUrl}${castSize}${oneCast.profile_path}`}alt={oneCast.name} /> 
+                        <p>{oneCast.name}</p>
+                    </div>
+                    )}
                 </div>
             </section>
         </main>
