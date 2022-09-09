@@ -2,16 +2,19 @@
 
 // Imports
 import MoviePoster from "../components/MoviePoster";
-import { endPointNowPlaying, endPointPopular, endPointTopRated, endPointUpcoming, apiKey, secureUrl, imgSize} from '../globals/globalVariables';
+import { endPointNowPlaying, endPointPopular, endPointTopRated, endPointUpcoming, apiKey } from '../globals/globalVariables';
 import { useState, useEffect } from 'react';
 import Button from "../components/Button";
 import { sortByButtons } from "../globals/sortByButtons";
+import isFav from "../utilities/isFav";
+import { useSelector } from 'react-redux';
 
 
 function PageHome () {
     const [sortMovie, setSortMovie] = useState(endPointNowPlaying);
     const [movieData, setMovieData] = useState([]);
-
+    const favs = useSelector((state) => state.favs.items);
+console.log(favs)
     function handleClick (value) {
         switch (value) {
             case 'now playing':
@@ -56,8 +59,12 @@ function PageHome () {
              />
             )}
             </div>
-            {movieData.map((movie)=> 
-            <MoviePoster key={movie.id} movie={movie} />
+            {movieData.map((singleMovie)=> 
+            <MoviePoster 
+            key={singleMovie.id} 
+            movie={singleMovie}
+            isFav={isFav(favs, null, singleMovie.id)} />
+            
             )}
         </main>
     );

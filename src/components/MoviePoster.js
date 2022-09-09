@@ -1,11 +1,10 @@
 // Movie Poster 
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { apiKey, secureUrl, imgSize} from '../globals/globalVariables';
+import { secureUrl, imgSize} from '../globals/globalVariables';
 import { GENRES } from '../globals/genreList';
 import FavButton from './FavButton';
 
-function MoviePoster ({movie}) {
+function MoviePoster ({movie, isFav}) {
     
 
     function getGenreName(id) {
@@ -17,8 +16,9 @@ function MoviePoster ({movie}) {
     return (
         <div className='movie-poster-wrapper'>
             <section className='movie-poster'key={movie.id}>
-                <FavButton 
-                value={movie}
+                <FavButton
+                isFav={isFav} 
+                movie={movie}
                 />
                 <img src={`${secureUrl}${imgSize}${movie.poster_path}`} alt={movie.title} />
                 <section className='movie-content'>
