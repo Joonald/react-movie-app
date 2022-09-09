@@ -5,17 +5,8 @@ import { apiKey, secureUrl, imgSize} from '../globals/globalVariables';
 import { GENRES } from '../globals/genreList';
 import FavButton from './FavButton';
 
-function MoviePoster ({sort}) {
-    const [movieData, setMovieData] = useState(false);
-
-    useEffect( () => {
-        const fetchMovie = async () => {
-            const res = await fetch(`${sort}${apiKey}`);
-            let data = await res.json();
-            setMovieData(data);
-        }
-        fetchMovie();
-    }, [sort]);
+function MoviePoster ({movie}) {
+    
 
     function getGenreName(id) {
         const thisgenre = GENRES.filter(genre => genre.id === id)
@@ -23,10 +14,8 @@ function MoviePoster ({sort}) {
             thisgenre[0].name
         )
     }
-
     return (
         <div className='movie-poster-wrapper'>
-        {movieData.results?.map((movie) => 
             <section className='movie-poster'key={movie.id}>
                 <FavButton 
                 value={movie}
@@ -55,7 +44,6 @@ function MoviePoster ({sort}) {
                     <button className='more-info-btn'><Link to={`/single/${movie.id}`}>More Info</Link></button>    
                 </section>
             </section>
-        )}
         </div>
     )
 };
