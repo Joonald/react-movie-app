@@ -34,7 +34,6 @@ function PageHome () {
         }
     }
     
-    const movies = [];
     useEffect( () => {
         const fetchMovie = async () => {
             const res = await fetch(`${sortMovie}${apiKey}`);
