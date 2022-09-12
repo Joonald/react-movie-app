@@ -2,6 +2,7 @@
 
 // Imports
 import MoviePoster from "../components/MoviePoster";
+import MovieBanner from "../components/MovieBanner";
 import { endPointNowPlaying, endPointPopular, endPointTopRated, endPointUpcoming, apiKey, secureUrl, imgSize} from '../globals/globalVariables';
 import { useState } from 'react';
 import Button from "../components/Button";
@@ -31,17 +32,19 @@ function PageHome () {
     return (
         <main>
             {/* hero banner */}
-
+        <MovieBanner/>
             {/* movie poster */}
+            <div className='sort-by-btns'>
             {sortByButtons.map((btn) => 
              <Button
                 key={btn.value}
                 value={btn.value}
-                className={btn.type}
+                type={btn.type}
                 text={btn.text}
                 handleClick={handleClick}
              />
             )}
+            </div>
            
             <MoviePoster sort={sortMovie}/>
         </main>

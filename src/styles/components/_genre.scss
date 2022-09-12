@@ -1,0 +1,21 @@
+.genre-option {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}
+
+.genremovie {
+    margin-top: 1rem ;
+}
+
+select {
+    width: 50%;
+    border: 1px solid $cloudBlue;
+    background-color: $cloudWhite;
+    padding: 0.6rem;
+    border-radius: 0.2rem;
+    color: $cloudBlue;
+ 
+  }

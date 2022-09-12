@@ -14,7 +14,7 @@ import Footer from '../components/Footer';
 import Nav from '../components/Nav';
 import Search from '../components/Search';
 import SearchResult from '../components/SearchResult';
-
+import MovieGenre from '../components/MovieGenre'
 
 
 
@@ -34,7 +34,7 @@ const RouterApp = function () {
                     <Route path="/single/:id" element={ <PageSingle/> }/>
                     <Route path="*" element={ <PageNotFound/> }/>
                     <Route path="/search/:input" element={ <SearchResult/> }/>
-
+                    {/* <Route path="/genre/:id" element={ <MovieGenre/> }/> */}
                 </Routes>
                 <Footer author={ appAuthor }/>
             </div>

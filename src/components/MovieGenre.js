@@ -4,28 +4,42 @@ import { Link } from 'react-router-dom';
 import { apiKey, secureUrl, imgSize} from '../globals/globalVariables';
 import { GENRES } from '../globals/genreList';
 import FavButton from './FavButton';
+import { useParams } from 'react-router-dom';
 
-function MoviePoster ({sort}) {
+function MovieGenre({seletedGenre}) 
+// 
+{
+
     const [movieData, setMovieData] = useState(false);
+    // const seletedGenre = useParams();
+    // console.log ({seletedGenre});
+
 
     useEffect( () => {
         const fetchMovie = async () => {
-            const res = await fetch(`${sort}${apiKey}`);
+            const res = await fetch(`https://api.themoviedb.org/3/discover/movie?${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${seletedGenre}`);
+            console.log(`https://api.themoviedb.org/3/discover/movie?${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${seletedGenre}`);
             let data = await res.json();
             setMovieData(data);
         }
         fetchMovie();
-    }, [sort]);
+    }, [seletedGenre]);
 
     function getGenreName(id) {
         const thisgenre = GENRES.filter(genre => genre.id === id)
     return (
             thisgenre[0].name
         )
-    }
+    };
 
+
+      
+
+  
     return (
-        <div className='movie-poster-wrapper'>
+  
+        <div className='genremovie movie-poster-wrapper'>
+ 
         {movieData.results?.map((movie) => 
             <section className='movie-poster'key={movie.id}>
                 <FavButton 
@@ -59,4 +73,4 @@ function MoviePoster ({sort}) {
         </div>
     )
 };
-export default MoviePoster;
+export default MovieGenre;

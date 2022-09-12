@@ -5,8 +5,8 @@
 .heart-cloud-container {
     display: flex;
     flex-wrap: wrap;
-    width: 30%;
-    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
 }
 
 .heart-single {
@@ -26,12 +26,12 @@
         color: $cloudWhite;
         stroke: $cloudWhite;
         stroke-width: 30px;
-        // display: inline-block;
+      
         padding: .5rem;
         margin-left: .5rem;
 }
 .rating-cloud-single{
-    width: 40px;
+    width: 45px;
     height: auto;
     position: relative;
     color: $cloudWhite;
@@ -42,8 +42,8 @@
 }
 .rating-single {
     position: absolute;
-    top: 30%;
-    left: 52%;
+    top: 33%;
+    left: 32%;
     color: $cloudBlue;
     font-size: .75rem;
 
@@ -55,4 +55,9 @@
    margin: 1rem;
    padding: 2rem;
    margin-bottom: 4rem;
+}
+.cast {
+   
+    justify-content: center;
+    align-items: center;
 }

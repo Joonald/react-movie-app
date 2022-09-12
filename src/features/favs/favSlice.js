@@ -24,15 +24,15 @@ export const favSlice = createSlice({
     initialState,
     reducers: {
         addFav: (state, action) => {
-            const newFavs = [...state.item, action.payload];
+            const newFavs = [...state.items, action.payload];
             localStorage.setItem(favMovies, JSON.stringify(newFavs));
-            state.item = newFavs;
+            state.items = newFavs;
         },
-        deleteFav: (state, action) => {
-            const itemsCopy = state.item;
-            itemsCopy.splice(getIndex(action.payload, state.item), 1);
+        delFav: (state, action) => {
+            const itemsCopy = state.items;
+            itemsCopy.splice(getIndex(action.payload, state.items), 1);
             localStorage.setItem(favMovies, JSON.stringify(itemsCopy));
-            state.item = itemsCopy;
+            state.items = itemsCopy;
         }
     },
 });
