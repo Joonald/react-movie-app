@@ -13,7 +13,6 @@ import { useSelector } from 'react-redux';
 function PageHome () {
     const [sortMovie, setSortMovie] = useState(endPointNowPlaying);
     const [movieData, setMovieData] = useState([]);
-    const [featMovie, setFeatMovie] = useState([]);
 
     const favs = useSelector((state) => state.favs.items);
 
@@ -48,8 +47,6 @@ function PageHome () {
         fetchMovie();
     }, [sortMovie]);
 
-    console.log(movieData);
-    console.log(featMovie);  
 
     return (
         <main>
