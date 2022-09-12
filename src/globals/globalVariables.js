@@ -22,3 +22,4 @@ export const secureUrl        = 'https://image.tmdb.org/t/p/';
 export const imgSize          = 'w342';
 export const backDropSize     = '/w1280/';
 export const engLang          = '&language=en-US';
+export const castSize         = 'w92';
