@@ -10,7 +10,8 @@ import { faHeart,faCloud } from '@fortawesome/free-solid-svg-icons';
 import { useSelector, useDispatch } from 'react-redux';
 import { addFav, delFav, favSlice } from '../features/favs/favSlice';
 import YouTube from 'react-youtube';
-
+import FavButton from '../components/FavButton';
+import isFav from "../utilities/isFav";
 
 function PageSingle () {
     const single = useParams();
@@ -22,6 +23,7 @@ function PageSingle () {
     const [isOpen, setOpen] = useState(false)
 
 
+    const favs = useSelector(state => state.favs.items);
 
     useEffect(() => {
         const fetchSingleMovie = async() => {
@@ -57,12 +59,6 @@ function PageSingle () {
         fetchTrailer();
     },[single.id]);
 
-    // function getTrailerKey() {
-    //     const filteredVideo = Trailer.filer(video=>video.key === 'Trailer')
-    //    return (
-
-    //    )
-    // }
   const trailerLink = () => {
       const trailer = Trailer.results?.find (vid => vid.name === 'Official Trailer')
       return (
@@ -87,7 +83,9 @@ function PageSingle () {
             <section className='single-movie-wrapper'>
                 <img src={`${secureUrl}${backDropSize}${singleMovieData.backdrop_path}`} alt={singleMovieData.title} />
                 <div>
-                    
+                    <FavButton
+                    movie={singleMovieData}
+                    isFav={isFav(favs, null, singleMovieData.id)} />
                     <h2>{singleMovieData.title}</h2>
                     <div className='heart-cloud-container'>
                     <FontAwesomeIcon icon={faHeart} className ={isActive ? 'favHeart-single':'heart-single'} onClick={favMovie} />
