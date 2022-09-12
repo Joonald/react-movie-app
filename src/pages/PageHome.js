@@ -13,8 +13,10 @@ import { useSelector } from 'react-redux';
 function PageHome () {
     const [sortMovie, setSortMovie] = useState(endPointNowPlaying);
     const [movieData, setMovieData] = useState([]);
+    const [featMovie, setFeatMovie] = useState([]);
+
     const favs = useSelector((state) => state.favs.items);
-console.log(favs)
+
     function handleClick (value) {
         switch (value) {
             case 'now playing':
@@ -33,16 +35,22 @@ console.log(favs)
         }
     }
     
-
+    const movies = [];
     useEffect( () => {
         const fetchMovie = async () => {
             const res = await fetch(`${sortMovie}${apiKey}`);
             let data = await res.json();
+            while (data.results.length > 12 ) {
+                data.results.pop();
+            };
             setMovieData(data.results);
         }
         fetchMovie();
     }, [sortMovie]);
-    
+
+    console.log(movieData);
+    console.log(featMovie);  
+
     return (
         <main>
             {/* hero banner */}

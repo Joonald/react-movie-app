@@ -24,14 +24,14 @@ function MoviePoster ({movie, isFav}) {
                 <section className='movie-content'>
                     <div className='movie-text'>
                         <h3 className='movie-title'>{movie.title}</h3>
-                        <span>
+                        {/* <span>
                         {movie.genre_ids.map((id) =>{
                             let genrename = getGenreName(id)
                             return (
                             <p className='genre' key={id}>{genrename}</p>
                         )}
                         )} 
-                        </span> 
+                        </span>  */}
                         <p className='release-text'>
                         {movie.release_date}
                         </p>
