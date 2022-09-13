@@ -3,14 +3,19 @@
 // Imports
 import MoviePoster from "../components/MoviePoster";
 import MovieBanner from "../components/MovieBanner";
-import { endPointNowPlaying, endPointPopular, endPointTopRated, endPointUpcoming, apiKey, secureUrl, imgSize} from '../globals/globalVariables';
-import { useState } from 'react';
+import { endPointNowPlaying, endPointPopular, endPointTopRated, endPointUpcoming, apiKey } from '../globals/globalVariables';
+import { useState, useEffect } from 'react';
 import Button from "../components/Button";
 import { sortByButtons } from "../globals/sortByButtons";
+import isFav from "../utilities/isFav";
+import { useSelector } from 'react-redux';
 
 
 function PageHome () {
-    const [sortMovie, setSortMovie] = useState(endPointNowPlaying)
+    const [sortMovie, setSortMovie] = useState(endPointNowPlaying);
+    const [movieData, setMovieData] = useState([]);
+
+    const favs = useSelector((state) => state.favs.items);
 
     function handleClick (value) {
         switch (value) {
@@ -29,6 +34,20 @@ function PageHome () {
             default:
         }
     }
+    
+    useEffect( () => {
+        const fetchMovie = async () => {
+            const res = await fetch(`${sortMovie}${apiKey}`);
+            let data = await res.json();
+            while (data.results.length > 12 ) {
+                data.results.pop();
+            };
+            setMovieData(data.results);
+        }
+        fetchMovie();
+    }, [sortMovie]);
+
+
     return (
         <main>
             {/* hero banner */}
@@ -45,8 +64,13 @@ function PageHome () {
              />
             )}
             </div>
-           
-            <MoviePoster sort={sortMovie}/>
+            {movieData.map((singleMovie)=> 
+            <MoviePoster 
+            key={singleMovie.id} 
+            movie={singleMovie}
+            isFav={isFav(favs, null, singleMovie.id)} />
+            
+            )}
         </main>
     );
 };
