@@ -21,12 +21,12 @@ function MovieBanner () {
     // const bannerList = movieData.banner?.slice(0, 5);
       // console.log(bannerList);
         return (
-          <Carousel fade>
+          <Carousel fade >
              {movieBanner.results?.map((movie) => 
             
           <Carousel.Item>
             <img
-              className="d-block w-100"
+              className="d-block w-100 carousel-poster"
              src={`${secureUrl}w780${movie.backdrop_path}`} alt={movie.title} 
             />
             <Carousel.Caption>
