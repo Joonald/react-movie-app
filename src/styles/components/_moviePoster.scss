@@ -93,7 +93,17 @@ max-height: 350px;
         stroke-width: 30px;
 }
 
+    
 .carousel-poster{
     height: 200px;
     object-fit: cover;
+}
+@media (min-width:640px) {
+    .movie-poster-wrapper {
+        width: calc(45vw - 5px);
+    }
+    #movie-poster{
+        display: flex;
+        flex-wrap: wrap;
+    }
 }

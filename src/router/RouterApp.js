@@ -11,7 +11,6 @@ import PageAbout from '../pages/PageAbout';
 import PageSingle from '../pages/PageSingle';
 import PageNotFound from '../pages/PageNotFound';
 import Footer from '../components/Footer';
-import Nav from '../components/Nav';
 import Search from '../components/Search';
 import SearchResult from '../components/SearchResult';
 import MovieGenre from '../components/MovieGenre'
@@ -25,7 +24,6 @@ const RouterApp = function () {
         <BrowserRouter>
             <div className='site-wrapper'>
                 <Header title={ appTitle }/>
-                <Nav/>
                 <Routes>
                     <Route path="/" exact element={ <PageHome/> }/>
                     <Route path="/favourites" element={ <PageFavourite/> }/>
