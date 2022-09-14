@@ -52,7 +52,7 @@ function MoviePoster ({movie, isFav}) {
                 isFav={isFav} 
                 movie={movie}
                 />
-                <img src={`${secureUrl}${imgSize}${movie.poster_path}`} alt={movie.title} />
+                <img className='img-poster' src={`${secureUrl}${imgSize}${movie.poster_path}`} alt={movie.title} />
                 <section className='movie-content'>
                     <div className='movie-text'>
                         <h3 className='movie-title'>{movie.title}</h3>

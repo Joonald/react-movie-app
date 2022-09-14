@@ -64,13 +64,14 @@ function PageHome () {
              />
             )}
             </div>
+            <div id='movie-poster'>
             {movieData.map((singleMovie)=> 
             <MoviePoster 
             key={singleMovie.id} 
             movie={singleMovie}
             isFav={isFav(favs, null, singleMovie.id)} />
-            
             )}
+            </div>
         </main>
     );
 };

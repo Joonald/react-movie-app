@@ -5,16 +5,15 @@ import { apiKey, secureUrl, imgSize} from '../globals/globalVariables';
 import { GENRES } from '../globals/genreList';
 import FavButton from './FavButton';
 import { useParams } from 'react-router-dom';
+import isFav from "../utilities/isFav";
+import { useSelector, useDispatch } from 'react-redux';
 
 function MovieGenre({seletedGenre}) 
 // 
 {
-
+    const favs = useSelector(state => state.favs.items);
     const [movieData, setMovieData] = useState(false);
-    // const seletedGenre = useParams();
-    // console.log ({seletedGenre});
-
-
+ 
     useEffect( () => {
         const fetchMovie = async () => {
             const res = await fetch(`https://api.themoviedb.org/3/discover/movie?${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${seletedGenre}`);
@@ -31,11 +30,7 @@ function MovieGenre({seletedGenre})
             thisgenre[0].name
         )
     };
-
-
-      
-
-  
+    
     return (
   
         <div className='genremovie movie-poster-wrapper'>
@@ -43,7 +38,8 @@ function MovieGenre({seletedGenre})
         {movieData.results?.map((movie) => 
             <section className='movie-poster'key={movie.id}>
                 <FavButton 
-                value={movie}
+                isFav={isFav(favs, null, movie.id)}
+                movie={movie}
                 />
                 <img src={`${secureUrl}${imgSize}${movie.poster_path}`} alt={movie.title} />
                 <section className='movie-content'>
