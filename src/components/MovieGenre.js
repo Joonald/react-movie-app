@@ -13,10 +13,7 @@ function MovieGenre({seletedGenre})
 {
     const favs = useSelector(state => state.favs.items);
     const [movieData, setMovieData] = useState(false);
-    // const seletedGenre = useParams();
-    // console.log ({seletedGenre});
-
-
+ 
     useEffect( () => {
         const fetchMovie = async () => {
             const res = await fetch(`https://api.themoviedb.org/3/discover/movie?${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${seletedGenre}`);
@@ -33,11 +30,7 @@ function MovieGenre({seletedGenre})
             thisgenre[0].name
         )
     };
-
-
-      
-
-  
+    
     return (
   
         <div className='genremovie movie-poster-wrapper'>

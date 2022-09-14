@@ -16,25 +16,20 @@ function MovieBanner () {
         }
         fetchMovie();
     });
-    // const bannerList = movieData.banner?.slice(0, 5);
-      // console.log(bannerList);
+
         return (
           <Carousel fade>
-             {movieBanner.results?.map((movie) => 
-            
-          <Carousel.Item>
-            <img
+               {movieBanner.results?.map((movie) => 
+            <Carousel.Item key={movie.title}>
+              <img
               className="d-block w-100"
-             src={`${secureUrl}w780${movie.backdrop_path}`} alt={movie.title} 
-            />
-            <Carousel.Caption>
-              <h3>{movie.title}</h3>
-            </Carousel.Caption>
-          </Carousel.Item>
-          
-
+              src={`${secureUrl}w780${movie.backdrop_path}`} alt={movie.title} 
+              />
+              <Carousel.Caption>
+                <h3>{movie.title}</h3>
+              </Carousel.Caption>
+            </Carousel.Item>
              )}
-          
         </Carousel>
         );
       }
