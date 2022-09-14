@@ -12,6 +12,7 @@ import { addFav, delFav, favSlice } from '../features/favs/favSlice';
 import YouTube from 'react-youtube';
 import FavButton from '../components/FavButton';
 import isFav from "../utilities/isFav";
+import Carousel from 'react-multi-carousel';
 
 function PageSingle () {
     const single = useParams();
@@ -24,6 +25,26 @@ function PageSingle () {
 
 
     const favs = useSelector(state => state.favs.items);
+
+    const responsive = {
+        superLargeDesktop: {
+          // the naming can be any, depends on you.
+          breakpoint: { max: 4000, min: 3000 },
+          items: 5
+        },
+        desktop: {
+          breakpoint: { max: 3000, min: 1024 },
+          items: 3
+        },
+        tablet: {
+          breakpoint: { max: 1024, min: 464 },
+          items: 2
+        },
+        mobile: {
+          breakpoint: { max: 464, min: 0 },
+          items: 1
+        }
+      };
 
     useEffect(() => {
         const fetchSingleMovie = async() => {
@@ -102,13 +123,15 @@ function PageSingle () {
                     <div className='cast'>
                          {trailerLink()}
                     <h2>Cast List</h2>
-
+                    <Carousel responsive={responsive}>
                     {theCastList?.map((oneCast) => 
                     <div >
                         <img src={`${secureUrl}${castSize}${oneCast.profile_path}`}alt={oneCast.name} /> 
                         <p>{oneCast.name}</p>
                     </div>
                     )}
+
+                </Carousel>;
                     </div>
                 </div>
             </section>
