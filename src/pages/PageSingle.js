@@ -47,6 +47,7 @@ function PageSingle () {
         }
         fetchCastList();
     },[single.id]);
+    console.log(castList);
      
     //trailer
     useEffect(() => {
@@ -54,7 +55,7 @@ function PageSingle () {
             const trailerlist = await fetch(`${endPointSingleMovie}${single.id}/videos?${apiKey}${engLang}`);
             let Trailer = await trailerlist.json();
             setTrailer(Trailer);
-            console.log(Trailer)
+          
         }
         fetchTrailer();
     },[single.id]);
@@ -68,14 +69,9 @@ function PageSingle () {
        
         </div>
               )
-        // console.log(trailer?.key)
-      
+       
   }
-
-
-
-
-
+  
         const theCastList = castList.cast?.slice(0, 5);
 
     return (
@@ -94,11 +90,7 @@ function PageSingle () {
                     <p className='rating-single'>{Math.round(singleMovieData.vote_average * 10)}%</p>
                     </div>
                     </div>
-                    {trailerLink()}
-                                        {/* <p><a href={`https://www.youtube.com/watch?v=${trailer.key}`}>Watch Trailer</a></p> */}
-                  
-                    {/* { Trailer.find(video=>video.type === 'Trailer').map(filteredVideo =>( */}
-                    {/* console.log(filteredVideo.key)                    ))} */}
+                   
                     <h3>{singleMovieData.tagline}</h3>
                     <p>{singleMovieData.release_date}</p>
                     <p> 
@@ -108,6 +100,7 @@ function PageSingle () {
                     </p>
                     <p>{singleMovieData.overview}</p>
                     <div className='cast'>
+                         {trailerLink()}
                     <h2>Cast List</h2>
 
                     {theCastList?.map((oneCast) => 
