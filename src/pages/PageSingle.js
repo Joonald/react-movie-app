@@ -39,6 +39,7 @@ function PageSingle () {
         }
         fetchCastList();
     },[single.id]);
+    console.log(castList);
      
     //trailer
     useEffect(() => {
@@ -46,6 +47,7 @@ function PageSingle () {
             const trailerlist = await fetch(`${endPointSingleMovie}${single.id}/videos?${apiKey}${engLang}`);
             let Trailer = await trailerlist.json();
             setTrailer(Trailer);
+          
         }
         fetchTrailer();
     },[single.id]);
@@ -57,8 +59,10 @@ function PageSingle () {
             <YouTube videoId={trailer?.key} />
         </div>
     )
-  } 
-    const theCastList = castList.cast?.slice(0, 5);
+       
+  }
+  
+        const theCastList = castList.cast?.slice(0, 5);
 
     return (
         <main>
@@ -77,9 +81,7 @@ function PageSingle () {
                         <p className='rating-single'>{Math.round(singleMovieData.vote_average * 10)}%</p>
                         </div>
                     </div>
-
-                    {trailerLink()}
-
+                   
                     <h3>{singleMovieData.tagline}</h3>
                     <p key={singleMovieData.id}>{singleMovieData.release_date}</p>
                     <p>
@@ -88,8 +90,8 @@ function PageSingle () {
                     )}
                     </p>
                     <p>{singleMovieData.overview}</p>
-
                     <div className='cast'>
+                         {trailerLink()}
                         <h2>Cast List</h2>
                         {theCastList?.map((oneCast) => 
                         <div key={oneCast.name}>
@@ -101,7 +103,7 @@ function PageSingle () {
                 </div>
             </section>
         </main>
-    )
-}
+    );
+};
 
 export default PageSingle;
