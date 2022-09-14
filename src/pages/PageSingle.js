@@ -83,16 +83,15 @@ function PageSingle () {
             <section className='single-movie-wrapper'>
                 <img src={`${secureUrl}${backDropSize}${singleMovieData.backdrop_path}`} alt={singleMovieData.title} />
                 <div>
-                    <FavButton
-                    movie={singleMovieData}
-                    isFav={isFav(favs, null, singleMovieData.id)} />
                     <h2>{singleMovieData.title}</h2>
                     <div className='heart-cloud-container'>
-                    <FontAwesomeIcon icon={faHeart} className ={isActive ? 'favHeart-single':'heart-single'} onClick={favMovie} />
-                    <div className='ratingbox'>
-                    <FontAwesomeIcon icon={faCloud} className ="rating-cloud-single" />
-                    <p className='rating-single'>{Math.round(singleMovieData.vote_average * 10)}%</p>
-                    </div>
+                        <FavButton
+                        movie={singleMovieData}
+                        isFav={isFav(favs, null, singleMovieData.id)} />
+                        <div className='ratingbox'>
+                        <FontAwesomeIcon icon={faCloud} className ="rating-cloud-single" />
+                        <p className='rating-single'>{Math.round(singleMovieData.vote_average * 10)}%</p>
+                        </div>
                     </div>
                     {trailerLink()}
                                         {/* <p><a href={`https://www.youtube.com/watch?v=${trailer.key}`}>Watch Trailer</a></p> */}

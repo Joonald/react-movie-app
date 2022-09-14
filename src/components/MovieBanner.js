@@ -16,8 +16,6 @@ function MovieBanner () {
         }
         fetchMovie();
     });
-    console.log(movieBanner);
-
     // const bannerList = movieData.banner?.slice(0, 5);
       // console.log(bannerList);
         return (

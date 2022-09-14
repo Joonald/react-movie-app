@@ -5,11 +5,13 @@ import { apiKey, secureUrl, imgSize} from '../globals/globalVariables';
 import { GENRES } from '../globals/genreList';
 import FavButton from './FavButton';
 import { useParams } from 'react-router-dom';
+import isFav from "../utilities/isFav";
+import { useSelector, useDispatch } from 'react-redux';
 
 function MovieGenre({seletedGenre}) 
 // 
 {
-
+    const favs = useSelector(state => state.favs.items);
     const [movieData, setMovieData] = useState(false);
     // const seletedGenre = useParams();
     // console.log ({seletedGenre});
@@ -43,7 +45,8 @@ function MovieGenre({seletedGenre})
         {movieData.results?.map((movie) => 
             <section className='movie-poster'key={movie.id}>
                 <FavButton 
-                value={movie}
+                isFav={isFav(favs, null, movie.id)}
+                movie={movie}
                 />
                 <img src={`${secureUrl}${imgSize}${movie.poster_path}`} alt={movie.title} />
                 <section className='movie-content'>
