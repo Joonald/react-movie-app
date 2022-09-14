@@ -77,7 +77,6 @@ function MovieBanner () {
           </Carousel.Item>
         
              )}
-          
         </Carousel>
         </>
         );
