@@ -23,23 +23,21 @@ function PageSingle () {
     const favs = useSelector(state => state.favs.items);
 
     const responsive = {
-        superLargeDesktop: {
-          // the naming can be any, depends on you.
-          breakpoint: { max: 4000, min: 3000 },
-          items: 5
-        },
         desktop: {
-          breakpoint: { max: 3000, min: 1024 },
-          items: 3
-        },
-        tablet: {
-          breakpoint: { max: 1024, min: 464 },
-          items: 2
-        },
-        mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: 1
-        }
+            breakpoint: { max: 3000, min: 1024 },
+            items: 7,
+            slidesToSlide: 5 // optional, default to 1.
+          },
+          tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 4,
+            slidesToSlide: 3 // optional, default to 1.
+          },
+          mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 2,
+            slidesToSlide: 1 // optional, default to 1.
+          }
       };
 
     useEffect(() => {
@@ -60,7 +58,7 @@ function PageSingle () {
         }
         fetchCastList();
     },[single.id]);
-    console.log(castList);
+
      
     //trailer
     useEffect(() => {
@@ -71,7 +69,9 @@ function PageSingle () {
           
         }
         fetchTrailer();
+        console.log('single');
     },[single.id]);
+   
 
   const trailerLink = () => {
     const trailer = Trailer.results?.find (vid => vid.name === 'Official Trailer')
@@ -83,7 +83,7 @@ function PageSingle () {
        
   }
   
-        const theCastList = castList.cast?.slice(0, 5);
+        const theCastList = castList.cast?.slice(0, 20);
 
     return (
         <main>
@@ -114,6 +114,7 @@ function PageSingle () {
                     <div className='cast'>
                          {trailerLink()}
                     <h2>Cast List</h2>
+    {castList !== false ?(
                     <Carousel responsive={responsive}>
                     {theCastList?.map((oneCast) => 
                     <div >
@@ -121,8 +122,15 @@ function PageSingle () {
                         <p>{oneCast.name}</p>
                     </div>
                     )}
+            
+                </Carousel>
+                ): (
+                    <div>
+                        <p>loading</p>
+                        </div>
+                )
+    }
 
-                </Carousel>;
                     </div>
                 </div>
             </section>
