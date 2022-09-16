@@ -57,15 +57,15 @@ function MoviePoster ({movie, isFav}) {
                     <div className='movie-text'>
                         <h3 className='movie-title'>{movie.title}</h3>
                        
-                        <span>
+                        <p>
                         {movie.genre_ids.map((id) =>{
                             let genrename = getGenreName(id)
                             return (
-                            <p className='genre' key={id}>{genrename}</p>
+                            <span className='genre' key={id}>{genrename}  </span>
                         )}
                         )} 
-                        </span> 
-                        {trailerLink()}
+                        </p>
+                        {/* {trailerLink()} */}
                         <p className='release-text'>
                         {movie.release_date}
                         </p>
