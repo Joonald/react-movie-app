@@ -114,7 +114,8 @@ function PageSingle () {
                     <div className='cast'>
                          {trailerLink()}
                     <h2>Cast List</h2>
-                    <Carousel responsive={responsive}>
+
+                    {/* <Carousel responsive={responsive}>
                     {theCastList?.map((oneCast) => 
                     <div >
                         <img src={`${secureUrl}${castSize}${oneCast.profile_path}`}alt={oneCast.name} /> 
@@ -122,7 +123,7 @@ function PageSingle () {
                     </div>
                     )}
 
-                </Carousel>;
+                </Carousel>; */}
                     </div>
                 </div>
             </section>

@@ -2,23 +2,19 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { apiKey, secureUrl, imgSize, backDropSize, engLang, castSize} from '../globals/globalVariables';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart,faCloud } from '@fortawesome/free-solid-svg-icons';
-import { useSelector, useDispatch } from 'react-redux';
-import { addFav, delFav, favSlice } from '../features/favs/favSlice';
 import { GENRES } from '../globals/genreList';
 import { Link } from 'react-router-dom';
 import Search from '../components/Search';
+import FavButton from './FavButton';
+import isFav from "../utilities/isFav";
+import { useSelector } from 'react-redux';
 
 
 function SearchResult() {
     const input = useParams();
     const [movieData, setMovieData] = useState(false);
-    const [isActive, setActive] = useState(false);
 
-    const favMovie = () => {
-        setActive(!isActive);
-      };
+    const favs = useSelector(state => state.favs.items);
 
 
     useEffect( () => {
@@ -41,11 +37,14 @@ function getGenreName(id) {
 
 
     return (
-        <div className='movie-poster-wrapper'>
+        
+        <div className='movie-poster-wrapper' id='movie-poster'>
         {movieData.results?.map((movie) => 
             <section className='movie-poster'key={movie.id}>
-                <FontAwesomeIcon icon={faHeart} className ={isActive ? 'favHeart':'heart'} onClick={favMovie} />
-                <img src={`${secureUrl}${imgSize}${movie.poster_path}`} alt={movie.title} />
+                <FavButton 
+                isFav={isFav(favs, null, movie.id)}
+                movie={movie}
+                />                <img src={`${secureUrl}${imgSize}${movie.poster_path}`} alt={movie.title} />
                 <section className='movie-content'>
 
                     <div className='movie-text'>

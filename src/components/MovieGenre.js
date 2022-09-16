@@ -33,7 +33,7 @@ function MovieGenre({seletedGenre})
     
     return (
   
-        <div className='genremovie movie-poster-wrapper'>
+        <div id='movie-poster' className='genremovie movie-poster-wrapper'>
  
         {movieData.results?.map((movie) => 
             <section className='movie-poster'key={movie.id}>
