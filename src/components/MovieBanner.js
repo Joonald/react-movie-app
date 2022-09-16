@@ -18,38 +18,41 @@ function MovieBanner () {
             setMovieBanner(data);
         }
         fetchMovie();
-    });
+        console.log('banner');
+    },[]
+    
+    );
 
  const theMovieBanner = movieBanner.results?.slice(0, 5);
 
 
  //trailer
- let movie = "";
-    useEffect(() => {
-      const fetchTrailer = async() => {
-          const trailerlist = await fetch(`${endPointSingleMovie}${movie.id}/videos?${apiKey}${engLang}`);
-          let Trailer = await trailerlist.json();
-          setTrailer(Trailer);
+//  let movie = "";
+//     useEffect(() => {
+//       const fetchTrailer = async() => {
+//           const trailerlist = await fetch(`${endPointSingleMovie}${movie.id}/videos?${apiKey}${engLang}`);
+//           let Trailer = await trailerlist.json();
+//           setTrailer(Trailer);
        
-      }
-      fetchTrailer();
-    },[movie.id]);
+//       }
+//       fetchTrailer();
+//     },[movie.id]);
 
-  const trailerLink = () => {
-    const trailer = Trailer.results?.find (vid => vid.name === 'Official Trailer')
+  // const trailerLink = () => {
+  //   const trailer = Trailer.results?.find (vid => vid.name === 'Official Trailer')
           
-    return (
-        <div>
+  //   return (
+  //       <div>
       
-        <React.Fragment>
-        <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={trailer?.key} onClose={() => setOpen(false)} />
+  //       <React.Fragment>
+  //       <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={trailer?.key} onClose={() => setOpen(false)} />
 
-        <button className="trailer-button" onClick={()=> setOpen(true)}>Watch Trailer</button>
-        </React.Fragment>
+  //       <button className="trailer-button" onClick={()=> setOpen(true)}>Watch Trailer</button>
+  //       </React.Fragment>
     
-      </div>
-    )
-  }
+  //     </div>
+  //   )
+  // }
 
   
         return (
