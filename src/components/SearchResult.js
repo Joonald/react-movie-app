@@ -25,6 +25,7 @@ function SearchResult() {
            
         }
         fetchMovie();
+        console.log('search result');
 
 });
 

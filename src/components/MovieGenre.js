@@ -22,6 +22,7 @@ function MovieGenre({seletedGenre})
             setMovieData(data);
         }
         fetchMovie();
+        console.log('genre');
     }, [seletedGenre]);
 
     function getGenreName(id) {
