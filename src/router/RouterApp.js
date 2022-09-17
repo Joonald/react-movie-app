@@ -32,7 +32,7 @@ const RouterApp = function () {
                     <Route path="/single/:id" element={ <PageSingle/> }/>
                     <Route path="*" element={ <PageNotFound/> }/>
                     <Route path="/search/:input" element={ <SearchResult/> }/>
-                    {/* <Route path="/genre/:id" element={ <MovieGenre/> }/> */}
+                    
                 </Routes>
                 <Footer author={ appAuthor }/>
             </div>
