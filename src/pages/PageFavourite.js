@@ -4,9 +4,16 @@
 import { useSelector } from 'react-redux';
 import MoviePoster from '../components/MoviePoster';
 import { Link } from 'react-router-dom';
+import { appTitle } from '../globals/globalVariables';
+import { useEffect } from 'react';
 
 function PageFavourite () {
+    useEffect(() => {
+		document.title = `${appTitle} - Favourite`;
+	}, []);
+    
     const favs = useSelector((state) => state.favs.items);
+
     return (
         <main>
             <h2>Favourite Movies</h2>

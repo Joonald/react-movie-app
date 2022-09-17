@@ -4,14 +4,19 @@
 import MoviePoster from "../components/MoviePoster";
 import MovieBanner from "../components/MovieBanner";
 import { endPointNowPlaying, endPointPopular, endPointTopRated, endPointUpcoming, apiKey } from '../globals/globalVariables';
-import { useState, useEffect } from 'react';
 import Button from "../components/Button";
 import { sortByButtons } from "../globals/sortByButtons";
 import isFav from "../utilities/isFav";
 import { useSelector } from 'react-redux';
+import { appTitle } from '../globals/globalVariables';
+import { useState, useEffect } from 'react';
 
 
 function PageHome () {
+    useEffect(() => {
+		document.title = `${appTitle} - Home`;
+	}, []);
+
     const [sortMovie, setSortMovie] = useState(endPointNowPlaying);
     const [movieData, setMovieData] = useState([]);
 

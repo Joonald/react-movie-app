@@ -5,10 +5,14 @@ import { apiKey, secureUrl, imgSize} from '../globals/globalVariables';
 import { GENRES } from '../globals/genreList';
 import FavButton from '../components/FavButton';
 import MovieGenre from '../components/MovieGenre';
+import { appTitle } from '../globals/globalVariables';
 
 // Imports
 
 function PageGenre () {
+    useEffect(() => {
+		document.title = `${appTitle} - Genres`;
+	}, []);
 
     const [newGenre, setGenre] = useState('')
 
