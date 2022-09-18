@@ -12,7 +12,7 @@ import ModalVideo from 'react-modal-video';
 import FavButton from '../components/FavButton';
 import isFav from "../utilities/isFav";
 import Carousel from 'react-multi-carousel';
-
+import placeholder from '../image/placeholder.jpg';
 
 function PageSingle () {
     const single = useParams();
@@ -77,9 +77,15 @@ function PageSingle () {
 
 const trailerLink = () => {
     const trailer = Trailer.results?.find (vid => vid.name === 'Official Trailer')
-
+    
     return (
-        <div>
+
+        trailer == null ?   
+            (<div className='no-trailer'>
+            <p>trailer not available</p>
+            </div>)
+         :
+        (<div>
       
         <React.Fragment>
         <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={trailer?.key} onClose={() => setOpen(false)} />
@@ -87,8 +93,9 @@ const trailerLink = () => {
         <button className="trailer-button" onClick={()=> setOpen(true)}>Play Trailer</button>
         </React.Fragment>
      
-      </div>
-    )
+      </div>)
+        
+    ) 
 }
   
         const theCastList = castList.cast?.slice(0, 20);
@@ -145,8 +152,14 @@ const trailerLink = () => {
                                 autoPlaySpeed={2000}
                                 keyBoardControl={true}>
                                 {theCastList?.map((oneCast) => 
+                                oneCast.profile_path == null ? 
+                                    <div>
+                                    <img className="cast-photo" src={placeholder} alt={oneCast.name} width="92"/>
+                                    <p>{oneCast.name}</p>
+                                    </div>
+                                    :
                                 <div >
-                                    <img src={`${secureUrl}${castSize}${oneCast.profile_path}`}alt={oneCast.name} /> 
+                                    <img className="cast-photo" src={`${secureUrl}${castSize}${oneCast.profile_path}`}alt={oneCast.name} /> 
                                     <p>{oneCast.name}</p>
                                 </div>
                                 )}
