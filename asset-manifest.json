@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.78a0d359.css",
+    "main.js": "/static/js/main.6886f3ab.js",
+    "static/media/revicons.eot": "/static/media/revicons.a77de540a38981833f9e.eot",
+    "static/media/revicons.ttf": "/static/media/revicons.57fd05d4ae650374c8de.ttf",
+    "static/media/revicons.woff": "/static/media/revicons.e8746a624ed098489406.woff",
+    "static/media/cloud-movie-logo.svg": "/static/media/cloud-movie-logo.fe3ddfea8845afb26fadf7aa31519a46.svg",
+    "index.html": "/index.html",
+    "main.78a0d359.css.map": "/static/css/main.78a0d359.css.map",
+    "main.6886f3ab.js.map": "/static/js/main.6886f3ab.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.78a0d359.css",
+    "static/js/main.6886f3ab.js"
+  ]
+}
