@@ -7,8 +7,12 @@
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
+}
+
+.heart-cloud-container>div {
+    padding-right: 2rem;
 }
 
 .heart-single {
@@ -28,7 +32,6 @@
         color: $cloudWhite;
         stroke: $cloudWhite;
         stroke-width: 30px;
-      
         padding: .5rem;
         margin-left: .5rem;
 }
@@ -45,7 +48,7 @@
 .rating-single {
     position: absolute;
     top: 33%;
-    left: 32%;
+    left: 22%;
     color: $cloudBlue;
     font-size: .75rem;
 
@@ -62,4 +65,54 @@
    
     justify-content: center;
     align-items: center;
+}
+
+.react-multiple-carousel__arrow {
+  display: none;
+
+}
+
+.heart-cloud-container .fa-heart, .heart-cloud-container .favHeart {
+    position: initial;
+}
+.trailer-button{
+    background-color: $cloudWhite;
+    color: $cloudBlue;
+    border-radius: 30px;
+    margin: 1rem 5px;
+    font-size: .75rem;
+    border-style: none;
+    filter: drop-shadow(5px 5px 7px $cloudGrey);
+    height: 30px;
+    padding: 8px 20px;
+}
+.genrebox {
+    background-color: $cloudWhite;
+    color: $cloudBlue;
+    border-radius: 30px;
+    padding: .5rem;
+    margin: 1rem 5px;
+    font-size: .75rem;
+}
+@media (min-width:767px) {
+    .single-grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        max-height: 350px;
+        position: relative;
+    }
+
+    .single-poster {
+        display: block;
+        width: 100%;
+        max-width: 500px;
+        max-height: 600px;
+
+        height: 80%;
+        object-fit: cover;
+    }
+    .grid-right {
+        padding: 2rem;
+        position: relative;
+    }
 }

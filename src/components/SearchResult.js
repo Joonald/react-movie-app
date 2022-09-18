@@ -27,7 +27,8 @@ function SearchResult() {
         fetchMovie();
         console.log('search result');
 
-});
+    },[]
+);
 
 function getGenreName(id) {
     const thisgenre = GENRES.filter(genre => genre.id === id)

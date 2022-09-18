@@ -2,21 +2,23 @@
 
 // Imports
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import React, {useState,useEffect } from 'react';
 import { apiKey, secureUrl, backDropSize, engLang, castSize} from '../globals/globalVariables';
 import { endPointSingleMovie } from '../globals/globalVariables';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloud } from '@fortawesome/free-solid-svg-icons';
 import { useSelector, useDispatch } from 'react-redux';
-import YouTube from 'react-youtube';
+import ModalVideo from 'react-modal-video';
 import FavButton from '../components/FavButton';
 import isFav from "../utilities/isFav";
 import Carousel from 'react-multi-carousel';
+
 
 function PageSingle () {
     const single = useParams();
     const [singleMovieData, setMovieData] = useState(false);
     const [castList, setCastList] = useState(false);
+    const [isOpen, setOpen] = useState(false)
     const [Trailer, setTrailer] = useState(false);
 
 
@@ -47,6 +49,7 @@ function PageSingle () {
             setMovieData(data);
         }
         fetchSingleMovie();
+        console.log('search single');
     },[single.id]);
 
       //castlist
@@ -57,82 +60,106 @@ function PageSingle () {
             setCastList(castList);
         }
         fetchCastList();
+        console.log('cast');
     },[single.id]);
 
      
-    //trailer
-    useEffect(() => {
-        const fetchTrailer = async() => {
-            const trailerlist = await fetch(`${endPointSingleMovie}${single.id}/videos?${apiKey}${engLang}`);
-            let Trailer = await trailerlist.json();
-            setTrailer(Trailer);
-          
-        }
-        fetchTrailer();
-        console.log('single');
-    },[single.id]);
-   
+   //trailer
+   useEffect(() => {
+    const fetchTrailer = async() => {
+        const trailerlist = await fetch(`${endPointSingleMovie}${singleMovieData.id}/videos?${apiKey}${engLang}`);
+        let Trailer = await trailerlist.json();
+        setTrailer(Trailer);
+     
+    }
+    fetchTrailer();
+},[singleMovieData.id]);
 
-  const trailerLink = () => {
+const trailerLink = () => {
     const trailer = Trailer.results?.find (vid => vid.name === 'Official Trailer')
+
     return (
         <div>
-            <YouTube videoId={trailer?.key} />
-        </div>
+      
+        <React.Fragment>
+        <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={trailer?.key} onClose={() => setOpen(false)} />
+
+        <button className="trailer-button" onClick={()=> setOpen(true)}>Play Trailer</button>
+        </React.Fragment>
+     
+      </div>
     )
-       
-  }
+}
   
         const theCastList = castList.cast?.slice(0, 20);
 
     return (
         <main>
             <section className='single-movie-wrapper'>
-                <img src={`${secureUrl}${backDropSize}${singleMovieData.backdrop_path}`} alt={singleMovieData.title} />
-                <div>
-
+                <div className='single-grid'>
+                <img className='single-poster' src={`${secureUrl}${backDropSize}${singleMovieData.poster_path}`} alt={singleMovieData.title} />
+                
+           
+                    <div className='grid-right'>
                     <h2>{singleMovieData.title}</h2>
-
-                    <div className='heart-cloud-container'>
-                        <FavButton
-                        movie={singleMovieData}
-                        isFav={isFav(favs, null, singleMovieData.id)} />
-                        <div className='ratingbox'>
-                        <FontAwesomeIcon icon={faCloud} className ="rating-cloud-single" />
-                        <p className='rating-single'>{Math.round(singleMovieData.vote_average * 10)}%</p>
-                        </div>
-                    </div>
                    
-                    <h3>{singleMovieData.tagline}</h3>
-                    <p key={singleMovieData.id}>{singleMovieData.release_date}</p>
-                    <p>
-                    {singleMovieData.genres?.map((genres) => 
-                    <span key={genres.id}>{genres.name}</span>
-                    )}
-                    </p>
-                    <p>{singleMovieData.overview}</p>
-                    <div className='cast'>
-                         {trailerLink()}
-                    <h2>Cast List</h2>
-    {castList !== false ?(
-                    <Carousel responsive={responsive}>
-                    {theCastList?.map((oneCast) => 
-                    <div >
-                        <img src={`${secureUrl}${castSize}${oneCast.profile_path}`}alt={oneCast.name} /> 
-                        <p>{oneCast.name}</p>
-                    </div>
-                    )}
-            
-                </Carousel>
-                ): (
-                    <div>
-                        <p>loading</p>
-                        </div>
-                )
-    }
+                        <div className='heart-cloud-container'>
+                            <div>
+                                <FavButton
+                                movie={singleMovieData}
+                                isFav={isFav(favs, null, singleMovieData.id)} />
+                            </div>
+                            <div className='ratingbox'>
+                            <FontAwesomeIcon icon={faCloud} className ="rating-cloud-single" />
+                            <p className='rating-single'>{Math.round(singleMovieData.vote_average * 10)}%</p>
+                            </div>
 
+                            <div>
+                            {trailerLink()}
+                            </div>
+                        </div>
+                   
+                            <h3>{singleMovieData.tagline}</h3>
+                            <p key={singleMovieData.id}>{singleMovieData.release_date}</p>
+                            <p>
+                            {singleMovieData.genres?.map((genres) => 
+                            <span className='genrebox' key={genres.id}>{genres.name}</span>
+                            )}
+                            </p>
+                            <p>{singleMovieData.overview}</p>
                     </div>
                 </div>
+                            
+                            
+                                <div className='cast'>
+                                
+                                <h2>Cast List</h2>
+                            {castList !== false ?(
+                                <Carousel   swipeable={true}
+                                draggable={true}
+                                showDots={true}
+                                responsive={responsive}
+                                ssr={true} 
+                                infinite={true}
+                                autoPlay={true}
+                                autoPlaySpeed={2000}
+                                keyBoardControl={true}>
+                                {theCastList?.map((oneCast) => 
+                                <div >
+                                    <img src={`${secureUrl}${castSize}${oneCast.profile_path}`}alt={oneCast.name} /> 
+                                    <p>{oneCast.name}</p>
+                                </div>
+                                )}
+                        
+                            </Carousel>
+                            ): (
+                                <div>
+                                    <p>loading</p>
+                                </div>
+                            )
+                            }
+                                </div>
+                    
             </section>
         </main>
     );

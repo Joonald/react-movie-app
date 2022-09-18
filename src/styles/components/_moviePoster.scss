@@ -99,8 +99,11 @@ max-height: 350px;
 }
     
 .carousel-poster{
-    height: 200px;
+    min-height: 300px;
+    height: calc(100vh / 2.5);
+    max-height: 360px;
     object-fit: cover;
+    object-position: bottom;
 }
 @media (min-width: 350px) {
     .overview-text {
@@ -144,5 +147,6 @@ max-height: 350px;
         margin: 0 auto;
         justify-content: flex-start;
         column-gap: 10px;
+        
     }
 }
