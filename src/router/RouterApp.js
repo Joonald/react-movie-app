@@ -25,7 +25,7 @@ const RouterApp = function () {
             <div className='site-wrapper'>
                 <Header title={ appTitle }/>
                 <Routes>
-                    <Route path="/" exact element={ <PageHome/> }/>
+                    <Route path="/react-movie-app" exact element={ <PageHome/> }/>
                     <Route path="/favourites" element={ <PageFavourite/> }/>
                     <Route path="/genres" element={ <PageGenre/> }/>
                     <Route path="/about" element={ <PageAbout/> }/>

@@ -7,7 +7,7 @@ const Nav = function () {
     return (
         <nav>
             <ul>
-                <li><NavLink to='/'><FontAwesomeIcon icon={faHouse} className='home' /></NavLink></li>
+                <li><NavLink to='/react-movie-app'><FontAwesomeIcon icon={faHouse} className='home' /></NavLink></li>
                 <li><NavLink to='/favourites'><FontAwesomeIcon icon={faHeart} className='nav-btn'/></NavLink></li>
                 <li><NavLink to='/genres'><FontAwesomeIcon icon={faFilm} className='nav-btn'/></NavLink></li>
                 <li><NavLink to='/about'><FontAwesomeIcon icon={faCircleQuestion} className='nav-btn'/></NavLink></li>
