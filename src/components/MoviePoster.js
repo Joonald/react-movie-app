@@ -45,6 +45,7 @@ function MoviePoster ({movie, isFav}) {
             thisgenre[0].name
         )
     }
+    console.log(movie)
     return (
         <div className='movie-poster-wrapper'>
             <section className='movie-poster'key={movie.id}>
@@ -56,16 +57,26 @@ function MoviePoster ({movie, isFav}) {
                 <section className='movie-content'>
                     <div className='movie-text'>
                         <h3 className='movie-title'>{movie.title}</h3>
-                       
                         <p>
-                        {movie.genre_ids.map((id) =>{
-                            let genrename = getGenreName(id)
-                            return (
-                            <span className='genre' key={id}>{genrename}  </span>
-                        )}
-                        )} 
+                        {movie.genre_ids ? (
+                            movie.genre_ids.map((id) => {
+                                let genrename = getGenreName(id)
+                                return (
+                                <span className='genre' key={id}>{genrename}  </span>
+                                )
+                            }
+                        )
+                        )
+                        : (
+                            movie.genres.map((id) => {
+                                return (
+                                <span className='genre' key={id}>{id.name}  </span>
+                                    )
+                                }
+                            )
+                        )
+                        }
                         </p>
-                        {/* {trailerLink()} */}
                         <p className='release-text'>
                         {movie.release_date}
                         </p>

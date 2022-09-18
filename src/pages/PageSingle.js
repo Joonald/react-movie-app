@@ -12,9 +12,13 @@ import ModalVideo from 'react-modal-video';
 import FavButton from '../components/FavButton';
 import isFav from "../utilities/isFav";
 import Carousel from 'react-multi-carousel';
+import { appTitle } from '../globals/globalVariables';
 import placeholder from '../image/placeholder.jpg';
 
 function PageSingle () {
+    useEffect(() => {
+		document.title = `${appTitle} - Single Movie`;
+	}, []);
     const single = useParams();
     const [singleMovieData, setMovieData] = useState(false);
     const [castList, setCastList] = useState(false);

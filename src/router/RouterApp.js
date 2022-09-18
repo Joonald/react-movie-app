@@ -25,14 +25,14 @@ const RouterApp = function () {
             <div className='site-wrapper'>
                 <Header title={ appTitle }/>
                 <Routes>
-                    <Route path="/" exact element={ <PageHome/> }/>
+                    <Route path="/react-movie-app" exact element={ <PageHome/> }/>
                     <Route path="/favourites" element={ <PageFavourite/> }/>
                     <Route path="/genres" element={ <PageGenre/> }/>
                     <Route path="/about" element={ <PageAbout/> }/>
                     <Route path="/single/:id" element={ <PageSingle/> }/>
                     <Route path="*" element={ <PageNotFound/> }/>
                     <Route path="/search/:input" element={ <SearchResult/> }/>
-                    {/* <Route path="/genre/:id" element={ <MovieGenre/> }/> */}
+                    
                 </Routes>
                 <Footer author={ appAuthor }/>
             </div>

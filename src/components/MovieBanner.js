@@ -17,10 +17,7 @@ function MovieBanner () {
             setMovieBanner(data);
         }
         fetchMovie();
-        console.log('banner');
-    },[]
-    
-    );
+    },[]);
 
  const theMovieBanner = movieBanner.results?.slice(0, 5);
 
@@ -34,7 +31,7 @@ function MovieBanner () {
           <Carousel  >
              {theMovieBanner?.map((movie) => 
          
-          <Carousel.Item>
+          <Carousel.Item key={movie.id}>
             <Link to={`/single/${movie.id}`}>
             <img
               className="d-block w-100 carousel-poster"

@@ -1,8 +1,8 @@
 .movie-poster-wrapper {
     height: auto;
-    width: calc(100vw - 10px);
+    max-width: calc(100vw - 10px);
     margin: 0 auto;
-    
+    align-self: flex-start;
 }
 .movie-poster {
     display: grid;
@@ -126,15 +126,16 @@ max-height: 350px;
         grid-column: 1;
         grid-row: 1 / 2;
         height: -webkit-fill-available;
-        z-index: 1;
-        background-color: $cloudBlue;
+        z-index: 2;
+        background: $cloudBlueHover;
+        display: none;
     }
     .img-poster {
         grid-row: 1 / 2;
-        z-index: 2;
+        z-index: 1;
     }
-    .img-poster:hover {
-        z-index: -5;
+    .movie-poster-wrapper:hover .movie-content {
+        display: block;
     }
     .movie-poster {
         grid-template-columns: 230px;
