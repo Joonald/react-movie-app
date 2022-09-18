@@ -19,7 +19,6 @@ nav ul{
 }
 nav {
     background-color: $cloudWhite;
-    // min-height: 3rem;
    overflow: hidden;
    position: fixed;
    bottom: 0;
@@ -30,6 +29,7 @@ nav {
 nav li {
   margin-left: .5rem ;
   margin-right: .5rem;
+  margin-top: .5rem;
   
 }
 nav a:link {
@@ -50,3 +50,71 @@ nav a:link {
     align-items: center;
     justify-content: space-between;
 }
+
+nav p {
+    display: none;
+}
+
+@media (min-width:767px) {
+    .nav-btn {
+        display: none;
+    }
+    nav p {
+        display: inline-block;
+        color: $cloudWhite;
+        padding-right: .75rem;
+    }
+    nav {
+        position: inherit;
+        background-color: $cloudBlue;
+        width: inherit;
+        display: flex;
+    align-items: center;
+    padding-top: 2rem;
+
+    
+    }
+    
+}
+.searchbar {
+    border-radius: 30px;
+    width: 100%;
+    height: 46px;
+    line-height: 46px;
+    font-size: 1.1em;
+    border: none;
+    padding: 1rem 20rem;
+   
+    
+}
+.search-form {
+    background-color: $cloudBlue;
+    width: 100%;
+    text-align:center;
+    padding:1rem;
+}
+.suggestion {
+    // position: fixed;
+    // top: 90px;
+    z-index: 100;
+    background-color: white;
+  padding: 10px;
+display: block;
+list-style: none;
+border-bottom: 1px solid $cloudGrey;
+
+}
+.autocomplete {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    a:link {
+        text-decoration: none;
+      }
+
+
+  }
+
+  .carousel-control-next,.carousel-control-prev {
+      display: none;
+  }

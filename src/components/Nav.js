@@ -7,12 +7,13 @@ const Nav = function () {
     return (
         <nav>
             <ul>
-                <li><NavLink to='/react-movie-app'><FontAwesomeIcon icon={faHouse} className='home' /></NavLink></li>
-                <li><NavLink to='/favourites'><FontAwesomeIcon icon={faHeart} className='nav-btn'/></NavLink></li>
-                <li><NavLink to='/genres'><FontAwesomeIcon icon={faFilm} className='nav-btn'/></NavLink></li>
-                <li><NavLink to='/about'><FontAwesomeIcon icon={faCircleQuestion} className='nav-btn'/></NavLink></li>
+                <li><NavLink to='/'><FontAwesomeIcon icon={faHouse} className='nav-btn home' /><p>HOME</p></NavLink></li>
+                <li><NavLink to='/favourites'><FontAwesomeIcon icon={faHeart} className='nav-btn'/><p>FAVOURITES</p></NavLink></li>
+                <li><NavLink to='/genres'><FontAwesomeIcon icon={faFilm} className='nav-btn'/><p>GENRE</p></NavLink></li>
+                <li><NavLink to='/about'><FontAwesomeIcon icon={faCircleQuestion} className='nav-btn'/><p>ABOUT</p></NavLink></li>
             </ul>
         </nav>
+   
         
     )
 }
