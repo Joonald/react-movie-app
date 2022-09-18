@@ -5,9 +5,12 @@
 .sort {
     background-color: $cloudBlue;
     color: $cloudWhite;
-    border-radius: 35%;
+    border-radius: 30px;
     margin: 1rem 5px;
     font-size: .75rem;
     border-style: none;
     filter: drop-shadow(5px 5px 7px $cloudGrey);
+    height: 30px;
+    padding: 8px 20px;
+
 }
