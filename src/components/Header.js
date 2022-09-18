@@ -5,11 +5,13 @@ import Nav from '../components/Nav';
 import { NavLink } from "react-router-dom";
 
 const Header = ({ title }) => (
+    <>
     <header id='header-nav'>
      <NavLink to='/'><img className='header-logo' src={logo} alt='logo'/></NavLink>
-    <Search/>
     <Nav/>
     </header>
+    <Search/>
+    </>
 );
 
 Header.defaultProps = {

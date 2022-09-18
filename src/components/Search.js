@@ -60,26 +60,28 @@ const Search= () => {
       setSearchTerm([])
       }
 
-  
+      const blurHandler= (searchTerm) => {
+        setTimeout(setSuggestion([]), 5000)
+      
+        }
   
  
       return (
    
         <div>
-      <form onSubmit={handleSubmit}>     
+      <form onSubmit={handleSubmit} className='search-form'>     
           <label>
-            <input   className='searchbar'  placeholder="Search for a movie" type="text"  value={searchTerm}  onChange={e => handleChange(e.target.value)} />
+            <input   className='searchbar'  placeholder="Search for a movie" type="text"  value={searchTerm}  onChange={e => handleChange(e.target.value)}  onBlur={e => blurHandler()}/>
           </label>
       </form>
-{/*            onBlur={setSuggestion([])}
-          onBlur={e => blurHandler()} */}
+
         
-        {/* <div className="autocomplete" >
+        <ul className="autocomplete" >
         {suggestion && suggestion.map((onesuggestion, i) =>
-          <div onMouseDown={(e) => e.preventDefault()} key={i} className="suggestion" onClick={() => onSuggestHandler(onesuggestion.title)}><Link to={`/single/${onesuggestion.id}`}>{onesuggestion.title}</Link>
-                    </div>
+          <li onMouseDown={(e) => e.preventDefault()} key={i} className="suggestion" onClick={() => onSuggestHandler(onesuggestion.title)}><Link to={`/single/${onesuggestion.id}`}>{onesuggestion.title}</Link>
+                    </li>
 )}
-        </div>  */}
+        </ul> 
      
       
         </div>
