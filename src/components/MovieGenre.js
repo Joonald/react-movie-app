@@ -7,6 +7,7 @@ import FavButton from './FavButton';
 import { useParams } from 'react-router-dom';
 import isFav from "../utilities/isFav";
 import { useSelector, useDispatch } from 'react-redux';
+import cloud from '../image/cloud-movie-logo.svg'
 
 function MovieGenre({seletedGenre}) 
 // 
@@ -42,7 +43,9 @@ function MovieGenre({seletedGenre})
                 isFav={isFav(favs, null, movie.id)}
                 movie={movie}
                 />
-                <img src={`${secureUrl}${imgSize}${movie.poster_path}`} alt={movie.title} />
+                {movie.poster_path == null ?                    
+                <img src={cloud} className='placeholder-poster'alt={movie.title} />:
+                <img src={`${secureUrl}${imgSize}${movie.poster_path}`} alt={movie.title} />}
                 <section className='movie-content'>
                     <div className='movie-text'>
                         <h3 className='movie-title'>{movie.title}</h3>

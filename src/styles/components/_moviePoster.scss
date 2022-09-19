@@ -99,12 +99,16 @@ max-height: 350px;
 }
     
 .carousel-poster{
-    min-height: 300px;
-    height: calc(100vh / 2.5);
-    max-height: 360px;
-    object-fit: cover;
-    object-position: bottom;
+    // min-height: 300px;
+    // height: calc(100vh / 2.5);
+    // max-height: 360px;
+    object-fit: contain;
+    // object-position: bottom;
+    // position: relative;
 }
+
+
+
 @media (min-width: 350px) {
     .overview-text {
        font-size: 0.6rem;
@@ -150,4 +154,13 @@ max-height: 350px;
         column-gap: 10px;
         
     }
+}
+
+.bluefont {
+    color: $cloudBlue;
+}
+
+.placeholder-poster{
+    background-color: $cloudBlue;
+    height: -webkit-fill-available;
 }

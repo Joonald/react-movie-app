@@ -17,9 +17,9 @@ function PageFavourite () {
     return (
         <main>
           
-            <h2>Favourite Movies</h2>
+            <h2 className='bluefont'>Favourite Movies</h2>
     
-            {favs.length < 1 ? <p> Oh no! You don't have any favourite movies. Return to the <Link to='/'>home</Link> page to add some favourite movies.</p> : 
+            {favs.length < 1 ? <p className='bluefont'> Oh no! You don't have any favourite movies. Return to the <Link to='/'>home</Link> page to add some favourite movies.</p> : 
                 <div id='movie-poster'>
                     {favs.map((singleMovie) => {
                         console.log(singleMovie)
