@@ -1,11 +1,13 @@
 .genre-option {
-
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     margin: 1rem;
 }
-
+.genre-option h2 {
+    color: $cloudBlue;
+    margin-bottom: 0;
+}
 .genremovie {
     margin-top: 1rem ;
 }

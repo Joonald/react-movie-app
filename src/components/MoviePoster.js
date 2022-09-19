@@ -45,7 +45,6 @@ function MoviePoster ({movie, isFav}) {
             thisgenre[0].name
         )
     }
-    console.log(movie)
     return (
         <div className='movie-poster-wrapper'>
             <section className='movie-poster'key={movie.id}>

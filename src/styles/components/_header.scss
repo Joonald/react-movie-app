@@ -76,6 +76,9 @@ nav p {
     }
     
 }
+.search-wrapper {
+    width: 50%;
+}
 .searchbar {
     border-radius: 30px;
     width: 100%;
@@ -83,9 +86,7 @@ nav p {
     line-height: 46px;
     font-size: 1.1em;
     border: none;
-    padding: 1rem 20rem;
-   
-    
+    text-align: center;
 }
 .search-form {
     background-color: $cloudBlue;
@@ -93,6 +94,10 @@ nav p {
     text-align:center;
     padding:1rem;
 }
+.search-form label {
+    width: 90%;
+}
+
 .suggestion {
     // position: fixed;
     // top: 90px;
@@ -105,7 +110,10 @@ border-bottom: 1px solid $cloudGrey;
 
 }
 .autocomplete {
-    position: relative;
+    padding-left: 0px;
+    width: 100%;
+    position: absolute;
+    left: 0;
     display: flex;
     flex-direction: column;
     a:link {
@@ -117,4 +125,9 @@ border-bottom: 1px solid $cloudGrey;
 
   .carousel-control-next,.carousel-control-prev {
       display: none;
+  }
+  @media (min-width: 767px) {
+    .search-form label {
+        width: 70%;
+    }
   }

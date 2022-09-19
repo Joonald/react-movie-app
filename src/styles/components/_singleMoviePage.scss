@@ -9,6 +9,7 @@
     flex-wrap: wrap;
     justify-content: start;
     align-items: center;
+    margin-bottom: 5px;
 }
 
 .heart-cloud-container>div {
@@ -62,11 +63,12 @@ border-radius:15px 50px;
    margin-bottom: 4rem;
 }
 .cast {
-   
     justify-content: center;
     align-items: center;
 }
-
+.cast h2 {
+    padding-top: 10px;
+}
 .react-multiple-carousel__arrow {
   display: none;
 

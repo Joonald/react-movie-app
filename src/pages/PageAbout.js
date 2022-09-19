@@ -10,7 +10,9 @@ function PageAbout () {
 
     return (
         <main>
-
+            <div id='about'>
+                
+            </div>
         </main>
     )
     
