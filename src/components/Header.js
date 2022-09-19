@@ -9,7 +9,7 @@ function Header () {
     return (
         <>
             <header id='header-nav'>
-                <NavLink to='/react-movie-app'><img className='header-logo' src={logo} alt='logo'/></NavLink>
+                <NavLink to='/'><img className='header-logo' src={logo} alt='logo'/></NavLink>
                 <Search/>
                 <Nav/>
             </header>

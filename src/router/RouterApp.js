@@ -21,11 +21,11 @@ import MovieGenre from '../components/MovieGenre'
 const RouterApp = function () {
 
     return (
-        <BrowserRouter>
+        <BrowserRouter basename='/react-movie-app'>
             <div className='site-wrapper'>
                 <Header title={ appTitle }/>
                 <Routes>
-                    <Route path="/react-movie-app" exact element={ <PageHome/> }/>
+                    <Route path="/" exact element={ <PageHome/> }/>
                     <Route path="/favourites" element={ <PageFavourite/> }/>
                     <Route path="/genres" element={ <PageGenre/> }/>
                     <Route path="/about" element={ <PageAbout/> }/>
