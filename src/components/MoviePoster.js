@@ -7,6 +7,9 @@ import ReactDOM from 'react-dom';
 import ModalVideo from 'react-modal-video';
 import React, {useState,useEffect } from 'react';
 import { endPointSingleMovie, apiKey, engLang } from '../globals/globalVariables';
+import cloud from '../image/cloud-movie-logo.svg';
+import { faCloud } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function MoviePoster ({movie, isFav}) {
     const [isOpen, setOpen] = useState(false)
@@ -48,11 +51,23 @@ function MoviePoster ({movie, isFav}) {
     return (
         <div className='movie-poster-wrapper'>
             <section className='movie-poster'key={movie.id}>
-                <FavButton
-                isFav={isFav} 
-                movie={movie}
-                />
-                <img className='img-poster' src={`${secureUrl}${imgSize}${movie.poster_path}`} alt={movie.title} />
+                <section className='img-poster'>
+                <div className='rating-box-poster'>
+                    <FavButton
+                    isFav={isFav} 
+                    movie={movie}
+                    />
+                    <div className='poster'>
+                        <div positon='relative'>
+                        <FontAwesomeIcon icon={faCloud} className ="rating-cloud-poster" />
+                        <p className='rating-poster'>{Math.round(movie.vote_average * 10)}%</p>
+                        </div>
+                    </div>
+                </div>
+                {movie.poster_path == null ?                    
+                <img src={cloud} className='placeholder-poster'alt={movie.title} />:
+                <img src={`${secureUrl}${imgSize}${movie.poster_path}`} alt={movie.title} />}
+                </section>
                 <section className='movie-content'>
                     <div className='movie-text'>
                         <h3 className='movie-title'>{movie.title}</h3>

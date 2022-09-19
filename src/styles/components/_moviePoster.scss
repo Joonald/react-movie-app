@@ -79,7 +79,9 @@ max-height: 350px;
     font-size: .5rem;
 }
 
-
+.img-poster {
+    position: relative;
+}
 .heart {
     width: 30px;
     height: auto;
@@ -104,7 +106,35 @@ max-height: 350px;
         stroke-width: 30px;
         z-index: 9999;
 }
-    
+.rating-cloud-poster{
+    width: 45px;
+    height: auto;
+    position: relative;
+    color: $cloudWhite;
+    padding: .5rem;
+}
+.rating-box-poster {
+    position: relative;
+    z-index: 999;
+}
+.rating-poster {
+    position: absolute;
+    color: $cloudBlue;
+    font-size: .75rem;
+    top: 35%;
+    left: 30%;
+}
+.rating-poster-box {
+    position: absolute;
+}
+.poster {
+    position: absolute;
+    z-index: 999;
+    right: 0;
+}
+.img-poster img {
+    max-height: 350px;
+}
 .carousel-poster{
     // min-height: 300px;
     // height: calc(100vh / 2.5);
@@ -114,7 +144,10 @@ max-height: 350px;
     // position: relative;
 }
 
-
+#favourite .rating-poster {
+    top: 10% !important;
+    left: 4% !important;
+}
 
 @media (min-width: 350px) {
     .overview-text {
@@ -129,20 +162,19 @@ max-height: 350px;
         max-width: fit-content;
     }
 }
-@media (min-width:767px) {
+@media (min-width: 450px) {
     .movie-content {
         max-width: 230px;
         position: absolute;
         grid-column: 1;
         grid-row: 1 / 2;
         height: -webkit-fill-available;
-        z-index: 2;
+        z-index: 1;
         background: $cloudBlueHover;
         display: none;
     }
     .img-poster {
         grid-row: 1 / 2;
-        z-index: 1;
     }
     .movie-poster-wrapper:hover .movie-content {
         display: block;

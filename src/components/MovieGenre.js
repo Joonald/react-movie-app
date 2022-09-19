@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom';
 import isFav from "../utilities/isFav";
 import { useSelector, useDispatch } from 'react-redux';
 import MoviePoster from "../components/MoviePoster";
-import cloud from '../image/cloud-movie-logo.svg'
+
 
 function MovieGenre({seletedGenre}) 
 // 

@@ -55,30 +55,6 @@ nav p {
     display: none;
 }
 
-@media (min-width:767px) {
-    .nav-btn {
-        display: none;
-    }
-    nav p {
-        display: inline-block;
-        color: $cloudWhite;
-        padding-right: .75rem;
-    }
-    nav {
-        position: inherit;
-        background-color: $cloudBlue;
-        width: inherit;
-        display: flex;
-    align-items: center;
-    padding-top: 2rem;
-
-    
-    }
-    
-}
-.search-wrapper {
-    width: 50%;
-}
 .searchbar {
     border-radius: 30px;
     width: 100%;
@@ -124,8 +100,25 @@ border-bottom: 1px solid $cloudGrey;
   .carousel-control-next,.carousel-control-prev {
       display: none;
   }
-  @media (min-width: 767px) {
-    .search-form label {
-        width: 70%;
+ 
+@media (min-width:767px) {
+    .nav-btn {
+        display: none;
     }
-  }
+    nav p {
+        display: inline-block;
+        color: $cloudWhite;
+        padding-right: .75rem;
+    }
+    nav {
+        position: inherit;
+        background-color: $cloudBlue;
+        width: inherit;
+        display: flex;
+    align-items: center;
+    padding-top: 2rem;
+    }
+    .search-wrapper{
+        width: 33%;
+    }
+}
