@@ -33,8 +33,7 @@ function PageGenre () {
                 value={GENRE.id}
                 text={GENRE.name}
                >{GENRE.name}
-                {/* <Link to={`/genre/${GENRE.id}`}>{GENRE.name}</Link> */}
-</option>
+               </option>
             )}
             </select>
             </div>

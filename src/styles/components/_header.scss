@@ -83,7 +83,9 @@ nav p {
     line-height: 46px;
     font-size: 1.1em;
     border: none;
-    padding: 1rem 20rem;
+    // padding: 1rem 10rem;
+    width: 20rem;
+    padding: 1rem;
    
     
 }
@@ -94,8 +96,6 @@ nav p {
     padding:1rem;
 }
 .suggestion {
-    // position: fixed;
-    // top: 90px;
     z-index: 100;
     background-color: white;
   padding: 10px;
@@ -105,9 +105,11 @@ border-bottom: 1px solid $cloudGrey;
 
 }
 .autocomplete {
-    position: relative;
+    width: 20rem;
+    position: absolute;
     display: flex;
     flex-direction: column;
+    margin-top: -17px;
     a:link {
         text-decoration: none;
       }
