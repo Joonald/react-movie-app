@@ -1,7 +1,7 @@
 // Movie Banner
 import React, {useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { apiKey, secureUrl, imgSize, endPointNowPlaying,endPointSingleMovie, engLang} from '../globals/globalVariables';
+import { apiKey, secureUrl,  bannerSize ,imgSize, endPointNowPlaying,endPointSingleMovie, engLang} from '../globals/globalVariables';
 
 
 import Carousel from 'react-bootstrap/Carousel';
@@ -35,14 +35,14 @@ function MovieBanner () {
             <Link to={`/single/${movie.id}`}>
             <img
               className="d-block w-100 carousel-poster"
-             src={`${secureUrl}w1920_and_h600_multi_faces_filter(duotone,032541,01b4e4)/${movie.backdrop_path}`} alt={movie.title} 
+             src={`https://image.tmdb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,032541,01b4e4)/${movie.backdrop_path}`} alt={movie.title} 
+            //  src={`${secureUrl}${bannerSize}${movie.backdrop_path}`} alt={movie.title} 
+
             />
             <Carousel.Caption>
-              <div>
-            {/* {trailerLink(movie.id)} */}
-            </div>
-           
-              <h3>{movie.title}</h3>
+    
+              <h3 className='banner-title'>{movie.title}</h3>
+              <p>{movie.release_date}</p>
            
             </Carousel.Caption>
             </Link>

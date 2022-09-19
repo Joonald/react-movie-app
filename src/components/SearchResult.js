@@ -8,6 +8,7 @@ import Search from '../components/Search';
 import FavButton from './FavButton';
 import isFav from "../utilities/isFav";
 import { useSelector } from 'react-redux';
+import cloud from '../image/cloud-movie-logo.svg'
 
 
 function SearchResult() {
@@ -46,7 +47,11 @@ function getGenreName(id) {
                 <FavButton 
                 isFav={isFav(favs, null, movie.id)}
                 movie={movie}
-                />                <img src={`${secureUrl}${imgSize}${movie.poster_path}`} alt={movie.title} />
+                />               
+                {movie.poster_path== null ? 
+                                   
+                <img src={cloud} className='placeholder-poster'alt={movie.title} />:
+                 <img src={`${secureUrl}${imgSize}${movie.poster_path}`} alt={movie.title} />}
                 <section className='movie-content'>
 
                     <div className='movie-text'>

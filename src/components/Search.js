@@ -23,7 +23,6 @@ const Search= () => {
       return;
     }
       const fetchMovie = async () => {
-          // const res = await fetch(`https://api.themoviedb.org/3/discover/movie?${apiKey}&sort_by=popularity.desc&include_adult=false&include_video=false&with_watch_monetization_types=flatrate`);
           const res = await fetch(`https://api.themoviedb.org/3/search/movie?${apiKey}&language=en-US&query=${searchTerm}&page=1&include_adult=false`);
           let data = await res.json();
           setSuggestion(data.results);
