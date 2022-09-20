@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-movie-app/static/css/main.a41b1f5b.css",
-    "main.js": "/react-movie-app/static/js/main.03afc3e5.js",
+    "main.css": "/react-movie-app/static/css/main.93c564c1.css",
+    "main.js": "/react-movie-app/static/js/main.b929e78a.js",
     "static/media/placeholder.jpg": "/react-movie-app/static/media/placeholder.0f133fa1877a5ea3d497.jpg",
     "static/media/revicons.eot": "/react-movie-app/static/media/revicons.a77de540a38981833f9e.eot",
     "static/media/revicons.ttf": "/react-movie-app/static/media/revicons.57fd05d4ae650374c8de.ttf",
@@ -9,11 +9,11 @@
     "static/media/tmdb-logo.svg": "/react-movie-app/static/media/tmdb-logo.bf7f470b3821af1da7fa249c87dadea3.svg",
     "static/media/cloud-movie-logo.svg": "/react-movie-app/static/media/cloud-movie-logo.fe3ddfea8845afb26fadf7aa31519a46.svg",
     "index.html": "/react-movie-app/index.html",
-    "main.a41b1f5b.css.map": "/react-movie-app/static/css/main.a41b1f5b.css.map",
-    "main.03afc3e5.js.map": "/react-movie-app/static/js/main.03afc3e5.js.map"
+    "main.93c564c1.css.map": "/react-movie-app/static/css/main.93c564c1.css.map",
+    "main.b929e78a.js.map": "/react-movie-app/static/js/main.b929e78a.js.map"
   },
   "entrypoints": [
-    "static/css/main.a41b1f5b.css",
-    "static/js/main.03afc3e5.js"
+    "static/css/main.93c564c1.css",
+    "static/js/main.b929e78a.js"
   ]
 }
