@@ -27,7 +27,7 @@ function MovieBanner () {
         return (
           <>
        
-          
+          <div>
           <Carousel  >
              {theMovieBanner?.map((movie) => 
          
@@ -50,6 +50,7 @@ function MovieBanner () {
         
              )}
         </Carousel>
+        </div>
         </>
         );
       }
