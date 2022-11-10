@@ -99,12 +99,11 @@ border-radius:15px 50px;
 @media (min-width:767px) {
 
     .cast {
-        margin-top: 10rem;
+        margin-top: 1rem;
         }
     .single-grid {
         display: grid;
         grid-template-columns: auto auto;
-        max-height: 350px;
         position: relative;
     }
 
@@ -113,7 +112,6 @@ border-radius:15px 50px;
         width: 100%;
         max-width: 500px;
         max-height: 700px;
-
         height: 80%;
         object-fit: cover;
     }
@@ -121,10 +119,11 @@ border-radius:15px 50px;
         padding: 2rem;
         position: relative;
     }
+
 }
 
 .cast {
-margin-top: 5rem;
+margin-top: 1rem;
 }
 
 .cast-photo {
