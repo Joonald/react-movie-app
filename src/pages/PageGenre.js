@@ -14,19 +14,23 @@ function PageGenre () {
 		document.title = `${appTitle} - Genres`;
 	}, []);
 
-    const [newGenre, setGenre] = useState('')
+    const [newGenre, setGenre] = useState(28);
 
     const handleClick= (event) => {
         event.preventDefault();
-
-        setGenre(event.target.value)
-        console.log(`https://api.themoviedb.org/3/discover/movie?${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${event.target.value}`)
+        setGenre(event.target.value);
     }
+    function getGenreName() {
+        const thisgenre = GENRES.filter(genre => genre.id === 28)
+    return (
+            thisgenre
+        )
+    }
+    console.log(newGenre)
     return (
         <main>
-    
             <div className='genre-option'>
-            <select onChange={handleClick}>
+            <h2>Showing Results for:</h2><select onChange={handleClick}>
             {GENRES.map((GENRE) => 
              <option
                 key={GENRE.id}

@@ -1,0 +1,30 @@
+#about {
+    min-height: 400px;
+    background: $cloudBlue;
+    margin: 1rem;
+    filter: drop-shadow(5px 5px 7px $cloudGrey);
+    border-radius: 15px;
+}
+.tmdb-logo {
+    max-width: 200px;
+    height: auto;
+}
+.about-title {
+    color: $cloudBlue;
+    margin: 1rem;
+}
+.project,
+.team {
+    margin: 1rem .75rem;
+    padding: 1rem 0;
+}
+#about h3 {
+    border-bottom: 1px solid white;
+}
+
+@media (min-width: 767px) {
+    #about {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}

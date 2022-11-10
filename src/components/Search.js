@@ -67,23 +67,19 @@ const Search= () => {
  
       return (
    
-        <div>
-      <form onSubmit={handleSubmit} className='search-form'>     
+      <div className='search-wrapper'>
+        <form onSubmit={handleSubmit} className='search-form'>     
           <label>
             <input   className='searchbar'  placeholder="Search for a movie" type="text"  value={searchTerm}  onChange={e => handleChange(e.target.value)}  onBlur={e => blurHandler()}/>
           </label>
-      </form>
-
-        
+        </form>
         <ul className="autocomplete" >
         {suggestion && suggestion.map((onesuggestion, i) =>
           <li onMouseDown={(e) => e.preventDefault()} key={i} className="suggestion" onClick={() => onSuggestHandler(onesuggestion.title)}><Link to={`/single/${onesuggestion.id}`}>{onesuggestion.title}</Link>
-                    </li>
-)}
+          </li>
+        )}
         </ul> 
-     
-      
-        </div>
+      </div>
       )
     
   };

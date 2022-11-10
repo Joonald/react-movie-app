@@ -16,20 +16,23 @@ function PageFavourite () {
 
     return (
         <main>
-          
-            <h2 className='bluefont'>Favourite Movies</h2>
+            <div id='favourite'>
+                <h2>Favourite Movies</h2>
     
-            {favs.length < 1 ? <p className='bluefont'> Oh no! You don't have any favourite movies. Return to the <Link to='/'>home</Link> page to add some favourite movies.</p> : 
-                <div id='movie-poster'>
-                    {favs.map((singleMovie) => {
-                        console.log(singleMovie)
+                {favs.length < 1 ? 
+                <div className='favourite-text'>
+                <p><span>Oh no!</span><br></br> 
+                You don't have any favourite movies.
+                <br></br> Return to the <Link to='/'>home</Link> page to add some favourite movies.</p>
+                </div> : 
+                    <div id='movie-poster'>
+                        {favs.map((singleMovie) => {
                         return <MoviePoster
                         key={singleMovie.id}
                         movie={singleMovie} />
-        
                     })}
-                </div>}
-                
+                    </div>}
+            </div>   
         </main>
     )
 };

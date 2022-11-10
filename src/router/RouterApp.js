@@ -1,6 +1,6 @@
 // App Router
 
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import { HashRouter, Routes, Route} from 'react-router-dom';
 import { appTitle, appAuthor, apiKey } from '../globals/globalVariables';
 
 import Header from '../components/Header';
@@ -21,11 +21,11 @@ import MovieGenre from '../components/MovieGenre'
 const RouterApp = function () {
 
     return (
-        <BrowserRouter>
+        <HashRouter>
             <div className='site-wrapper'>
                 <Header title={ appTitle }/>
                 <Routes>
-                    <Route path="/react-movie-app" exact element={ <PageHome/> }/>
+                    <Route path="/" exact element={ <PageHome/> }/>
                     <Route path="/favourites" element={ <PageFavourite/> }/>
                     <Route path="/genres" element={ <PageGenre/> }/>
                     <Route path="/about" element={ <PageAbout/> }/>
@@ -36,7 +36,7 @@ const RouterApp = function () {
                 </Routes>
                 <Footer author={ appAuthor }/>
             </div>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 export default RouterApp;
